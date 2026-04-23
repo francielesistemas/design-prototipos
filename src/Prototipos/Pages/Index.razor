@@ -1,0 +1,79 @@
+@page "/"
+@inject FluxoService FluxoService
+
+<PageTitle>Protótipos de Design — Cooperativa Lar</PageTitle>
+
+<div class="container">
+
+    <section class="home-hero">
+        <div class="home-hero__eyebrow rz-text-overline">Design System — Lar</div>
+        <h1 class="rz-text-h4 home-hero__title">Protótipos de Design</h1>
+        <p class="home-hero__subtitle rz-text-body1">
+            Estas são telas navegáveis para validação. Ainda em construção —
+            explore cada fluxo, clique nos elementos e me conte o que acha.
+        </p>
+    </section>
+
+    @if (_fluxos is null)
+    {
+        <div class="home-loading" role="status">
+            <div class="loading-spinner"></div>
+            <p class="rz-text-body2" style="color: var(--rz-text-secondary); margin-top: 12px;">
+                Carregando fluxos…
+            </p>
+        </div>
+    }
+    else if (_fluxos.Count == 0)
+    {
+        <div class="home-empty">
+            <h2 class="rz-text-h6">Nenhum fluxo por enquanto</h2>
+            <p class="rz-text-body2" style="color: var(--rz-text-secondary); margin-top: 8px;">
+                Os próximos protótipos aparecem aqui assim que forem criados.
+            </p>
+        </div>
+    }
+    else
+    {
+        <div class="fluxos-grid" role="list">
+            @foreach (var fluxo in _fluxos)
+            {
+                var (statusLabel, statusClass) = fluxo.StatusInfo;
+
+                <a class="fluxo-card" role="listitem" href="@fluxo.PrimeiroPasso">
+                    <div class="fluxo-card__top">
+                        <span class="rz-badge--status @statusClass">@statusLabel</span>
+                        <span class="fluxo-card__date rz-text-caption" style="font-weight:400; text-transform:none; letter-spacing:0.25px;">
+                            Atualizado @fluxo.UltimaAtualizacaoFormatada
+                        </span>
+                    </div>
+
+                    <h2 class="rz-text-h6 fluxo-card__title">@fluxo.Nome</h2>
+                    <p class="rz-text-body2 fluxo-card__desc">@fluxo.Descricao</p>
+
+                    <div class="fluxo-card__footer">
+                        <div class="fluxo-card__meta">
+                            <span class="material-icons fluxo-card__meta-icon">group</span>
+                            <span class="rz-text-caption" style="font-weight:400; text-transform:none; letter-spacing:0.25px;">
+                                @string.Join(" • ", fluxo.Personas)
+                            </span>
+                        </div>
+                        <div class="fluxo-card__cta">
+                            <span class="rz-text-button">Abrir</span>
+                            <span class="material-icons" style="font-size:16px;">arrow_forward</span>
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    }
+
+</div>
+
+@code {
+    private List<Fluxo>? _fluxos;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _fluxos = await FluxoService.ObterTodosAsync();
+    }
+}

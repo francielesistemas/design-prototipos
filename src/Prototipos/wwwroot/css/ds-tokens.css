@@ -1,0 +1,159 @@
+/* ==========================================================================
+   Design System — Cooperativa Lar
+   Tokens extraidos de: docs/design-system-blazor.md (Radzen Blazor Material)
+   Fonte Figma: Radzen Blazor Material Theme UI kit (Community)
+
+   Este arquivo e a UNICA fonte de verdade para cores, tipografia, espacamento
+   e sombras. Nunca use valores hardcoded nos componentes da aplicacao.
+   ========================================================================== */
+
+:root {
+  /* ---------- Cores semanticas (brand) ---------- */
+  --rz-primary-lighter: #E1445F;
+  --rz-primary-light:   #E1445F;
+  --rz-primary:         #DB2040;
+  --rz-primary-dark:    #B81B36;
+  --rz-primary-darker:  #A3122B;
+
+  --rz-secondary-lighter: #EEEEEE;
+  --rz-secondary-light:   #EEEEEE;
+  --rz-secondary:         #E0E0E0;
+  --rz-secondary-dark:    #BDBDBD;
+  --rz-secondary-darker:  #9E9E9E;
+
+  --rz-info-lighter: #295CB3;
+  --rz-info-light:   #295CB3;
+  --rz-info:         #003DA5;
+  --rz-info-dark:    #00338A;
+  --rz-info-darker:  #00276B;
+
+  --rz-success-lighter: #538E56;
+  --rz-success-light:   #538E56;
+  --rz-success:         #327836;
+  --rz-success-dark:    #2A652D;
+  --rz-success-darker:  #1C471E;
+
+  --rz-warning-lighter: #EFB06F;
+  --rz-warning-light:   #EFB06F;
+  --rz-warning:         #ECA154;
+  --rz-warning-dark:    #C68746;
+  --rz-warning-darker:  #A36B31;
+
+  --rz-danger-lighter: #D45161;
+  --rz-danger-light:   #D45161;
+  --rz-danger:         #CC3043;
+  --rz-danger-dark:    #AB2838;
+  --rz-danger-darker:  #8E1E2C;
+
+  /* ---------- Superficies / neutros ---------- */
+  --rz-base-0:    #FFFFFF;
+  --rz-base-50:   #FAFAFA;
+  --rz-base-100:  #F5F5F5;
+  --rz-base-200:  #EEEEEE;
+  --rz-base-300:  #E0E0E0;
+  --rz-base-400:  #BDBDBD;
+  --rz-base-500:  #9E9E9E;
+  --rz-base-600:  #757575;
+  --rz-base-700:  #616161;
+  --rz-base-800:  #424242;
+  --rz-base-900:  #212121;
+
+  --rz-text-color:        #424242;
+  --rz-text-secondary:    #757575;
+  --rz-text-on-primary:   #FFFFFF;
+  --rz-text-disabled:     #9E9E9E;
+
+  --rz-body-background:   #FAFAFA;
+  --rz-surface:           #FFFFFF;
+  --rz-border-color:      #E0E0E0;
+  --rz-divider:           #EEEEEE;
+
+  /* ---------- Espacamento (grade de 4px) ---------- */
+  --rz-space-1: 4px;
+  --rz-space-2: 8px;
+  --rz-space-3: 12px;
+  --rz-space-4: 16px;
+  --rz-space-5: 20px;
+  --rz-space-6: 24px;
+  --rz-space-8: 32px;
+  --rz-space-10: 40px;
+
+  /* ---------- Raio ---------- */
+  --rz-border-radius: 4px;
+
+  /* ---------- Tipografia ---------- */
+  --rz-font-family: "CentraleSansRnd", "Inter", "Roboto", "Segoe UI", sans-serif;
+
+  /* ---------- Sombras (escala de 10 niveis do Material) ---------- */
+  --rz-shadow-1:  0 1px 1px rgba(0,0,0,.14),  0 2px 1px rgba(0,0,0,.12),  0 1px 3px rgba(0,0,0,.14);
+  --rz-shadow-2:  0 2px 2px rgba(0,0,0,.14),  0 3px 1px rgba(0,0,0,.12),  0 1px 5px rgba(0,0,0,.14);
+  --rz-shadow-3:  0 3px 4px rgba(0,0,0,.14),  0 3px 3px rgba(0,0,0,.12),  0 1px 8px rgba(0,0,0,.14);
+  --rz-shadow-4:  0 4px 5px rgba(0,0,0,.14),  0 1px 10px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.14);
+  --rz-shadow-5:  0 6px 10px rgba(0,0,0,.14), 0 1px 18px rgba(0,0,0,.12), 0 3px 5px rgba(0,0,0,.14);
+  --rz-shadow-6:  0 8px 10px rgba(0,0,0,.14), 0 3px 14px rgba(0,0,0,.12), 0 5px 5px rgba(0,0,0,.14);
+  --rz-shadow-7:  0 9px 12px rgba(0,0,0,.14), 0 3px 16px rgba(0,0,0,.12), 0 5px 6px rgba(0,0,0,.14);
+  --rz-shadow-8:  0 12px 17px rgba(0,0,0,.14),0 5px 22px rgba(0,0,0,.12), 0 7px 8px rgba(0,0,0,.14);
+  --rz-shadow-9:  0 16px 24px rgba(0,0,0,.14),0 6px 30px rgba(0,0,0,.12), 0 8px 10px rgba(0,0,0,.14);
+  --rz-shadow-10: 0 24px 38px rgba(0,0,0,.14),0 9px 46px rgba(0,0,0,.12), 0 11px 15px rgba(0,0,0,.14);
+}
+
+/* ---------- Reset e base do app ---------- */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--rz-font-family);
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.25px;
+  color: var(--rz-text-color);
+  background: var(--rz-body-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app { min-height: 100vh; }
+
+/* ---------- Escala tipografica (rz/text/*) ---------- */
+.rz-text-h1       { font-size: 96px; line-height: 112px; font-weight: 300; letter-spacing: -1.5px; margin: 0; }
+.rz-text-h2       { font-size: 60px; line-height: 72px;  font-weight: 300; letter-spacing: -0.5px; margin: 0; }
+.rz-text-h3       { font-size: 48px; line-height: 56px;  font-weight: 400; margin: 0; }
+.rz-text-h4       { font-size: 34px; line-height: 36px;  font-weight: 400; letter-spacing: 0.25px; margin: 0; }
+.rz-text-h5       { font-size: 24px; line-height: normal;font-weight: 400; margin: 0; }
+.rz-text-h6       { font-size: 20px; line-height: 24px;  font-weight: 500; letter-spacing: 0.15px; margin: 0; }
+.rz-text-subtitle1{ font-size: 16px; line-height: 24px;  font-weight: 500; letter-spacing: 0.15px; margin: 0; }
+.rz-text-subtitle2{ font-size: 14px; line-height: 20px;  font-weight: 500; letter-spacing: 0.10px; margin: 0; }
+.rz-text-body1    { font-size: 16px; line-height: 24px;  font-weight: 400; letter-spacing: 0.5px;  margin: 0; }
+.rz-text-body2    { font-size: 14px; line-height: 24px;  font-weight: 400; letter-spacing: 0.25px; margin: 0; }
+.rz-text-button   { font-size: 14px; line-height: 16px;  font-weight: 500; letter-spacing: 1.25px; margin: 0; }
+.rz-text-caption  { font-size: 12px; line-height: 16px;  font-weight: 700; letter-spacing: 0.4px;  margin: 0; }
+.rz-text-overline { font-size: 10px; line-height: 12px;  font-weight: 400; letter-spacing: 1px;    text-transform: uppercase; margin: 0; }
+
+/* ---------- Utilitarios de espacamento ---------- */
+.rz-p-1 { padding: var(--rz-space-1); }
+.rz-p-2 { padding: var(--rz-space-2); }
+.rz-p-3 { padding: var(--rz-space-3); }
+.rz-p-4 { padding: var(--rz-space-4); }
+.rz-p-6 { padding: var(--rz-space-6); }
+.rz-p-8 { padding: var(--rz-space-8); }
+
+.rz-mt-2 { margin-top: var(--rz-space-2); }
+.rz-mt-4 { margin-top: var(--rz-space-4); }
+.rz-mt-6 { margin-top: var(--rz-space-6); }
+.rz-mt-8 { margin-top: var(--rz-space-8); }
+
+/* ---------- Badges semanticos (status dos fluxos) ---------- */
+.rz-badge--status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rz-space-1);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+.rz-badge--status-rascunho   { background: var(--rz-base-200);       color: var(--rz-base-800); }
+.rz-badge--status-revisao    { background: rgba(236,161,84,.20);     color: var(--rz-warning-darker); }
+.rz-badge--status-aprovado   { background: rgba(50,120,54,.16);      color: var(--rz-success-darker); }

@@ -1,0 +1,148 @@
+/* ---------- Hero ---------- */
+.home-hero {
+    padding: var(--rz-space-6) 0 var(--rz-space-8);
+    max-width: 720px;
+}
+
+.home-hero__eyebrow {
+    color: var(--rz-primary);
+    margin-bottom: var(--rz-space-2);
+    font-weight: 500;
+}
+
+.home-hero__title {
+    color: var(--rz-base-900);
+    margin-bottom: var(--rz-space-3);
+}
+
+.home-hero__subtitle {
+    color: var(--rz-text-secondary);
+    max-width: 620px;
+}
+
+/* ---------- Estados vazio/loading ---------- */
+.home-loading,
+.home-empty {
+    padding: var(--rz-space-10) var(--rz-space-4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--rz-base-0);
+    border: 1px solid var(--rz-border-color);
+    border-radius: var(--rz-border-radius);
+}
+
+/* ---------- Grid de fluxos ---------- */
+.fluxos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--rz-space-6);
+}
+
+/* ---------- Card de fluxo ---------- */
+.fluxo-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rz-space-4);
+    padding: var(--rz-space-6);
+    background: var(--rz-surface);
+    border-radius: var(--rz-border-radius);
+    box-shadow: var(--rz-shadow-2);
+    color: inherit;
+    text-decoration: none;
+    min-height: 220px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.fluxo-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--rz-primary);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.fluxo-card:hover {
+    box-shadow: var(--rz-shadow-5);
+    transform: translateY(-2px);
+}
+
+.fluxo-card:hover::before {
+    opacity: 1;
+}
+
+.fluxo-card:focus-visible {
+    outline: 2px solid var(--rz-primary);
+    outline-offset: 2px;
+}
+
+.fluxo-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rz-space-2);
+}
+
+.fluxo-card__date {
+    color: var(--rz-text-secondary);
+}
+
+.fluxo-card__title {
+    color: var(--rz-base-900);
+}
+
+.fluxo-card__desc {
+    color: var(--rz-text-secondary);
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.fluxo-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rz-space-3);
+    padding-top: var(--rz-space-3);
+    border-top: 1px solid var(--rz-divider);
+}
+
+.fluxo-card__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--rz-space-1);
+    color: var(--rz-text-secondary);
+    flex: 1;
+    min-width: 0;
+}
+
+.fluxo-card__meta-icon {
+    font-size: 16px;
+    color: var(--rz-base-500);
+    flex-shrink: 0;
+}
+
+.fluxo-card__meta span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fluxo-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rz-space-1);
+    color: var(--rz-primary);
+    flex-shrink: 0;
+    font-weight: 500;
+    text-transform: uppercase;
+}

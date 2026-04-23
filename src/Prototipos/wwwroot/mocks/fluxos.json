@@ -1,0 +1,44 @@
+{
+  "fluxos": [
+    {
+      "id": "onboarding",
+      "nome": "Onboarding de colaborador",
+      "descricao": "Primeiros passos de um novo colaborador no sistema — boas-vindas, cadastro, confirmação de e-mail e perfil inicial.",
+      "personas": ["Colaborador recém-contratado", "RH"],
+      "status": "rascunho",
+      "ultimaAtualizacao": "2026-04-22",
+      "quantidadeTelas": 4,
+      "primeiroPasso": "/fluxos/onboarding/boas-vindas"
+    },
+    {
+      "id": "dashboard",
+      "nome": "Dashboard operacional",
+      "descricao": "Tela principal de acompanhamento diário — indicadores, gráficos e alertas da operação.",
+      "personas": ["Gestor de operações", "Supervisor"],
+      "status": "rascunho",
+      "ultimaAtualizacao": "2026-04-20",
+      "quantidadeTelas": 1,
+      "primeiroPasso": "/fluxos/dashboard"
+    },
+    {
+      "id": "aprovacao-solicitacao",
+      "nome": "Aprovação de solicitação",
+      "descricao": "Fluxo do gestor para revisar, aprovar ou devolver uma solicitação enviada pela equipe.",
+      "personas": ["Gestor", "Solicitante"],
+      "status": "em-revisao",
+      "ultimaAtualizacao": "2026-04-18",
+      "quantidadeTelas": 3,
+      "primeiroPasso": "/fluxos/aprovacao-solicitacao/lista"
+    },
+    {
+      "id": "cadastro-fornecedor",
+      "nome": "Cadastro de fornecedor",
+      "descricao": "Formulário multietapa para registrar um novo fornecedor — dados cadastrais, fiscais e bancários.",
+      "personas": ["Analista de compras"],
+      "status": "aprovado",
+      "ultimaAtualizacao": "2026-04-10",
+      "quantidadeTelas": 5,
+      "primeiroPasso": "/fluxos/cadastro-fornecedor/dados-basicos"
+    }
+  ]
+}

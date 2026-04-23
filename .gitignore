@@ -1,0 +1,48 @@
+# ---------- .NET / Blazor ----------
+bin/
+obj/
+publish/
+out/
+*.user
+*.suo
+*.userprefs
+.vs/
+.vscode/
+.idea/
+
+# ---------- NuGet ----------
+*.nupkg
+*.snupkg
+packages/
+# NuGet v3 restore lock file (opcional manter)
+# project.assets.json
+
+# ---------- Arquivos de build ----------
+[Dd]ebug/
+[Rr]elease/
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.log
+
+# ---------- Sistema operacional ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# ---------- Editor / IDE ----------
+*.swp
+*.swo
+*~
+
+# ---------- Entregas compactadas ----------
+# Ficam em entregas/, versionar SO se foram gerados intencionalmente
+# entregas/*.zip
+
+# ---------- Secrets (nao deveria ter aqui, mas por precaucao) ----------
+.env
+.env.local
+*.key
+*.pem
+appsettings.Development.json
+appsettings.Local.json

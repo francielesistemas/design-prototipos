@@ -1,0 +1,70 @@
+name: Publicar no GitHub Pages
+
+# Roda automaticamente a cada push em main, ou manualmente pela aba Actions.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Permissoes necessarias pro deploy-pages da GitHub.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Garante que deploys nao se sobreponham.
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build (Blazor WASM)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restaurar dependencias
+        run: dotnet restore src/Prototipos/Prototipos.csproj
+
+      - name: Publicar em Release
+        run: dotnet publish src/Prototipos/Prototipos.csproj -c Release -o publish --no-restore
+
+      # GitHub Pages serve em /<nome-do-repo>/, entao o <base href="/"> precisa
+      # virar <base href="/design-prototipos/"> no deploy.
+      - name: Ajustar base href pra subpasta do GitHub Pages
+        run: |
+          sed -i 's|<base href="/" />|<base href="/design-prototipos/" />|g' publish/wwwroot/index.html
+
+      # Blazor WASM usa rotas client-side. Quando o visitante acessa
+      # /fluxos/onboarding diretamente, o GitHub devolve 404 — esse fallback
+      # carrega a index.html e o roteador do Blazor assume dali.
+      - name: Criar 404.html (fallback de rota SPA)
+        run: cp publish/wwwroot/index.html publish/wwwroot/404.html
+
+      # Sem isso o GitHub Pages ignora arquivos que comecam com _ (ex: _framework).
+      - name: Adicionar .nojekyll
+        run: touch publish/wwwroot/.nojekyll
+
+      - name: Upload do artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: publish/wwwroot
+
+  deploy:
+    name: Deploy no GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

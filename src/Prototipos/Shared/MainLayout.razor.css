@@ -1,0 +1,16 @@
+.app-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-main {
+    flex: 1;
+    padding: var(--rz-space-8) 0 var(--rz-space-10);
+}
+
+.app-footer {
+    border-top: 1px solid var(--rz-divider);
+    background: var(--rz-base-0);
+    padding: var(--rz-space-4) 0;
+}

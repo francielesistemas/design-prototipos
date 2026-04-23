@@ -1,0 +1,26 @@
+@*
+    Root do roteador Blazor. MainLayout é o layout padrão.
+    <RadzenComponents /> registra os portais de Dialog, Notification, Tooltip etc.
+*@
+<Router AppAssembly="@typeof(App).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <PageTitle>Página não encontrada</PageTitle>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <div class="rz-p-8" style="text-align:center">
+                <h1 class="rz-text-h4">Ops, essa página não existe.</h1>
+                <p class="rz-text-body1" style="color: var(--rz-text-secondary); margin-top: 8px;">
+                    Talvez o fluxo ainda não tenha sido criado ou o link está com erro de digitação.
+                </p>
+                <a href="" class="rz-button rz-button--text rz-button--primary" style="margin-top:24px; display:inline-block;">
+                    Voltar para a home
+                </a>
+            </div>
+        </LayoutView>
+    </NotFound>
+</Router>
+
+<RadzenComponents />
