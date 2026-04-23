@@ -356,9 +356,11 @@ html, body {
 
 .rz-steps-item.rz-state-highlight .rz-steps-number,
 .rz-steps-item-active .rz-steps-number,
-li.rz-steps-item.rz-state-highlight > a > .rz-steps-number {
+li.rz-steps-item.rz-state-highlight > a > .rz-steps-number,
+.rz-steps-item.rz-state-highlight .rz-steps-number *,
+.rz-steps-item-active .rz-steps-number * {
     background: var(--rz-primary) !important;
-    color: var(--rz-text-on-primary) !important;
+    color: #FFFFFF !important;
     border-color: var(--rz-primary) !important;
 }
 
