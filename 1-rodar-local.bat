@@ -9,13 +9,17 @@ REM ===========================================================
 cd /d "%~dp0"
 
 echo.
-echo === Subindo servidor local de prototipos ===
+echo === Subindo servidor local com HOT RELOAD ===
 echo.
 echo     Quando ver "Now listening on: https://localhost:5001"
 echo     abra no navegador: https://localhost:5001
 echo.
-echo     (Para parar: feche esta janela ou aperte Ctrl+C)
+echo     HOT RELOAD: qualquer mudanca em arquivo .razor/.css eh
+echo     detectada automaticamente e o navegador recarrega em 1-2s.
+echo     Voce nao precisa parar e rodar de novo.
+echo.
+echo     (Para parar de vez: feche esta janela ou aperte Ctrl+C)
 echo.
 
-dotnet run --project src\Prototipos\Prototipos.csproj
+dotnet watch --project src\Prototipos\Prototipos.csproj --non-interactive
 pause
