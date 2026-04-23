@@ -509,7 +509,7 @@
 
             <DsComponentDemo Title="Inputs standalone (sem FormField)"
                              Description="Quando o label vive fora do campo, use os inputs Radzen direto."
-                             Code="@("<RadzenTextBox Placeholder=\"Digite aqui\" />\n<RadzenNumeric TValue=\"int\" @bind-Value=\"_n\" />\n<RadzenSwitch @bind-Value=\"_ativo\" />\n<RadzenCheckBox TValue=\"bool\" @bind-Value=\"_ativo\" />")">
+                             Code="@CodeInputs">
                 <Preview>
                     <div class="ds-input-grid">
                         <div>
@@ -706,118 +706,99 @@
         new("B.I.", 3167),
     };
 
-    // ---- Codigos-fonte exibidos nos demos ----
-    private const string CodeButton = """
-<RadzenButton Text="Primary" ButtonStyle="ButtonStyle.Primary" />
-<RadzenButton Text="Outlined" ButtonStyle="ButtonStyle.Primary" Variant="Variant.Outlined" />
-<RadzenButton Text="Text" ButtonStyle="ButtonStyle.Primary" Variant="Variant.Text" />
-<RadzenButton Icon="download" Text="Com ícone" ButtonStyle="ButtonStyle.Primary" />
-<RadzenButton Text="Disabled" Disabled="true" />
-""";
+    // ---- Codigos-fonte exibidos nos demos (verbatim strings @"...") ----
+    private const string CodeButton = @"<RadzenButton Text=""Primary"" ButtonStyle=""ButtonStyle.Primary"" />
+<RadzenButton Text=""Outlined"" ButtonStyle=""ButtonStyle.Primary"" Variant=""Variant.Outlined"" />
+<RadzenButton Text=""Text"" ButtonStyle=""ButtonStyle.Primary"" Variant=""Variant.Text"" />
+<RadzenButton Icon=""download"" Text=""Com ícone"" ButtonStyle=""ButtonStyle.Primary"" />
+<RadzenButton Text=""Disabled"" Disabled=""true"" />";
 
-    private const string CodeBadge = """
-<RadzenBadge Text="Primary"  BadgeStyle="BadgeStyle.Primary"  />
-<RadzenBadge Text="Success"  BadgeStyle="BadgeStyle.Success"  />
-<RadzenBadge Text="Warning"  BadgeStyle="BadgeStyle.Warning"  />
-<RadzenBadge Text="Danger"   BadgeStyle="BadgeStyle.Danger"   />
+    private const string CodeBadge = @"<RadzenBadge Text=""Primary""  BadgeStyle=""BadgeStyle.Primary""  />
+<RadzenBadge Text=""Success""  BadgeStyle=""BadgeStyle.Success""  />
+<RadzenBadge Text=""Warning""  BadgeStyle=""BadgeStyle.Warning""  />
+<RadzenBadge Text=""Danger""   BadgeStyle=""BadgeStyle.Danger""   />
 
-@* Pill customizada pra status de fluxo (ds-tokens.css) *@
-<span class="rz-badge--status rz-badge--status-aprovado">Aprovado</span>
-""";
+<!-- Pill customizada pra status de fluxo (ds-tokens.css) -->
+<span class=""rz-badge--status rz-badge--status-aprovado"">Aprovado</span>";
 
-    private const string CodeCard = """
-<RadzenCard Variant="Variant.Filled" Style="width: 280px">
-    <RadzenText TextStyle="TextStyle.Subtitle1">Título do card</RadzenText>
-    <RadzenText TextStyle="TextStyle.Body2" Style="color: var(--rz-text-secondary)">
+    private const string CodeCard = @"<RadzenCard Variant=""Variant.Filled"" Style=""width: 280px"">
+    <RadzenText TextStyle=""TextStyle.Subtitle1"">Título do card</RadzenText>
+    <RadzenText TextStyle=""TextStyle.Body2"" Style=""color: var(--rz-text-secondary)"">
         Conteúdo com descrição. Sombra nível 2 por padrão.
     </RadzenText>
 </RadzenCard>
 
-<RadzenCard Variant="Variant.Outlined" Style="width: 280px">
-    <RadzenText TextStyle="TextStyle.Subtitle1">Card outlined</RadzenText>
-    <RadzenText TextStyle="TextStyle.Body2">Sem sombra, borda 1px.</RadzenText>
-</RadzenCard>
-""";
+<RadzenCard Variant=""Variant.Outlined"" Style=""width: 280px"">
+    <RadzenText TextStyle=""TextStyle.Subtitle1"">Card outlined</RadzenText>
+    <RadzenText TextStyle=""TextStyle.Body2"">Sem sombra, borda 1px.</RadzenText>
+</RadzenCard>";
 
-    private const string CodeStatCard = """
-<div class="ds-stat-card">
-    <div class="ds-stat-card__icon ds-stat-card__icon--info">
-        <span class="material-icons">computer</span>
+    private const string CodeStatCard = @"<div class=""ds-stat-card"">
+    <div class=""ds-stat-card__icon ds-stat-card__icon--info"">
+        <span class=""material-icons"">computer</span>
     </div>
-    <div class="ds-stat-card__meta">
-        <div class="ds-stat-card__label">Computadores</div>
-        <div class="ds-stat-card__value">23.953</div>
+    <div class=""ds-stat-card__meta"">
+        <div class=""ds-stat-card__label"">Computadores</div>
+        <div class=""ds-stat-card__value"">23.953</div>
     </div>
-</div>
-""";
+</div>";
 
-    private const string CodeFormField = """
-<RadzenFormField Text="Nome do colaborador" Style="width: 100%">
-    <RadzenTextBox @bind-Value="_nome" />
+    private const string CodeFormField = @"<RadzenFormField Text=""Nome do colaborador"" Style=""width: 100%"">
+    <RadzenTextBox @bind-Value=""_nome"" />
 </RadzenFormField>
 
-<RadzenFormField Text="Área" Variant="Variant.Filled">
-    <RadzenDropDown Data="@_areas" @bind-Value="_area" />
-</RadzenFormField>
-""";
+<RadzenFormField Text=""Área"" Variant=""Variant.Filled"">
+    <RadzenDropDown Data=""@_areas"" @bind-Value=""_area"" />
+</RadzenFormField>";
 
-    private const string CodeBreadcrumb = """
-<RadzenBreadCrumb>
-    <RadzenBreadCrumbItem Path="" Text="Início" />
-    <RadzenBreadCrumbItem Path="acompanhamento" Text="Acompanhamento" />
-    <RadzenBreadCrumbItem Text="Instrução Documental" />
-</RadzenBreadCrumb>
-""";
+    private const string CodeInputs = @"<RadzenTextBox Placeholder=""Digite aqui"" />
+<RadzenNumeric TValue=""int"" @bind-Value=""_n"" />
+<RadzenSwitch @bind-Value=""_ativo"" />
+<RadzenCheckBox TValue=""bool"" @bind-Value=""_ativo"" />";
 
-    private const string CodeSteps = """
-<RadzenSteps SelectedIndex="1">
+    private const string CodeBreadcrumb = @"<RadzenBreadCrumb>
+    <RadzenBreadCrumbItem Path="""" Text=""Início"" />
+    <RadzenBreadCrumbItem Path=""acompanhamento"" Text=""Acompanhamento"" />
+    <RadzenBreadCrumbItem Text=""Instrução Documental"" />
+</RadzenBreadCrumb>";
+
+    private const string CodeSteps = @"<RadzenSteps SelectedIndex=""1"">
     <Steps>
-        <RadzenStepsItem Text="Proforma" />
-        <RadzenStepsItem Text="Instrução" />
-        <RadzenStepsItem Text="Carregamento" />
-        <RadzenStepsItem Text="Embarque" />
+        <RadzenStepsItem Text=""Proforma"" />
+        <RadzenStepsItem Text=""Instrução"" />
+        <RadzenStepsItem Text=""Carregamento"" />
+        <RadzenStepsItem Text=""Embarque"" />
     </Steps>
-</RadzenSteps>
-""";
+</RadzenSteps>";
 
-    private const string CodePanelMenu = """
-<RadzenPanelMenu>
-    <RadzenPanelMenuItem Text="Início" Icon="home" Path="/" />
-    <RadzenPanelMenuItem Text="Acompanhamento" Icon="list_alt"
-                         Path="/acompanhamento" Selected="true" />
-    <RadzenPanelMenuItem Text="Financeiro" Icon="paid" Path="/financeiro" />
-    <RadzenPanelMenuItem Text="Relatórios" Icon="bar_chart" Path="/relatorios" />
-</RadzenPanelMenu>
-""";
+    private const string CodePanelMenu = @"<RadzenPanelMenu>
+    <RadzenPanelMenuItem Text=""Início"" Icon=""home"" Path=""/"" />
+    <RadzenPanelMenuItem Text=""Acompanhamento"" Icon=""list_alt""
+                         Path=""/acompanhamento"" Selected=""true"" />
+    <RadzenPanelMenuItem Text=""Financeiro"" Icon=""paid"" Path=""/financeiro"" />
+    <RadzenPanelMenuItem Text=""Relatórios"" Icon=""bar_chart"" Path=""/relatorios"" />
+</RadzenPanelMenu>";
 
-    private const string CodeChart = """
-<RadzenChart>
-    <RadzenColumnSeries Data="@_acessosPorMes"
-                        CategoryProperty="Mes" ValueProperty="Acessos"
-                        Title="Acessos por mês" Stroke="var(--rz-primary)"
-                        Fill="var(--rz-primary)" />
-    <RadzenValueAxis FormatString="{0:N0}" />
+    private const string CodeChart = @"<RadzenChart>
+    <RadzenColumnSeries Data=""@_acessosPorMes""
+                        CategoryProperty=""Mes"" ValueProperty=""Acessos""
+                        Title=""Acessos por mês""
+                        Fill=""#E40046"" Stroke=""#E40046"" />
+    <RadzenValueAxis FormatString=""{0:N0}"" />
     <RadzenCategoryAxis />
-</RadzenChart>
-""";
+</RadzenChart>";
 
-    private const string CodeDonut = """
-<RadzenChart>
-    <RadzenDonutSeries Data="@_topSistemas"
-                       CategoryProperty="Sistema" ValueProperty="Acessos"
-                       Title="Top sistemas mais acessados" />
-</RadzenChart>
-""";
+    private const string CodeDonut = @"<RadzenChart>
+    <RadzenDonutSeries Data=""@_topSistemas""
+                       CategoryProperty=""Sistema"" ValueProperty=""Acessos""
+                       Title=""Top sistemas mais acessados"" />
+</RadzenChart>";
 
-    private const string CodeAlert = """
-<RadzenAlert AlertStyle="AlertStyle.Info"    Title="Informativo">...</RadzenAlert>
-<RadzenAlert AlertStyle="AlertStyle.Success" Title="Sucesso">...</RadzenAlert>
-<RadzenAlert AlertStyle="AlertStyle.Warning" Title="Atenção">...</RadzenAlert>
-<RadzenAlert AlertStyle="AlertStyle.Danger"  Title="Erro">...</RadzenAlert>
-""";
+    private const string CodeAlert = @"<RadzenAlert AlertStyle=""AlertStyle.Info""    Title=""Informativo"">...</RadzenAlert>
+<RadzenAlert AlertStyle=""AlertStyle.Success"" Title=""Sucesso"">...</RadzenAlert>
+<RadzenAlert AlertStyle=""AlertStyle.Warning"" Title=""Atenção"">...</RadzenAlert>
+<RadzenAlert AlertStyle=""AlertStyle.Danger""  Title=""Erro"">...</RadzenAlert>";
 
-    private const string CodeAppearanceToggle = """
-<RadzenAppearanceToggle />
-@* Coloca no header pra usuário trocar entre light/dark em runtime *@
-""";
+    private const string CodeAppearanceToggle = @"<RadzenAppearanceToggle />
+<!-- Coloca no header pra usuário trocar entre light/dark em runtime -->";
 }

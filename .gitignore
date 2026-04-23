@@ -35,6 +35,9 @@ $RECYCLE.BIN/
 *.swo
 *~
 
+# ---------- Claude Code (worktrees e arquivos internos) ----------
+.claude/
+
 # ---------- Entregas compactadas ----------
 # Ficam em entregas/, versionar SO se foram gerados intencionalmente
 # entregas/*.zip
