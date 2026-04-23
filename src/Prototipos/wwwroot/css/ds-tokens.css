@@ -307,20 +307,28 @@ html, body {
    Overrides dos componentes Radzen que nao puxam os tokens Lar corretamente
    ========================================================================== */
 
-/* Switch — Radzen 5.x mantém thumb em azul Material 2 mesmo com primary customizado.
-   Força thumb branco em ambos estados e track vermelho Lar quando ativo. */
-.rz-switch .rz-switch-circle,
-.rz-switch-checked .rz-switch-circle {
-    background: #FFFFFF !important;
-    border: 1px solid var(--rz-base-300) !important;
+/* Switch — Radzen mantém thumb/track em azul Material mesmo com primary customizado.
+   Força vermelho Lar (--rz-primary #E40046) em todos estados ativos. */
+.rz-switch,
+.rz-switch .rz-switch-label,
+.rz-switch .rz-switch-label-off,
+.rz-switch .rz-switch-label-on {
+    background: var(--rz-base-400) !important;
 }
 
-.rz-switch-checked {
+.rz-switch-checked,
+.rz-switch.rz-switch-checked,
+.rz-switch-checked .rz-switch-label,
+.rz-switch-checked .rz-switch-label-on {
     background: var(--rz-primary) !important;
 }
 
-.rz-switch {
-    background: var(--rz-base-400) !important;
+.rz-switch .rz-switch-circle,
+.rz-switch-checked .rz-switch-circle,
+.rz-switch .rz-switch-handle,
+.rz-switch-checked .rz-switch-handle {
+    background: #FFFFFF !important;
+    border: 1px solid var(--rz-base-300) !important;
 }
 
 /* DropDown item selecionado — garante contraste AA (vermelho Lar + texto branco) */
