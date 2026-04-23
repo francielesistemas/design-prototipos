@@ -845,3 +845,54 @@
 .ds-sort-item .material-icons {
     font-size: 18px;
 }
+
+/* Field com estado de validação — borda colorida + hint abaixo */
+.ds-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ds-field__hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 2px;
+}
+
+.ds-field__hint .material-icons {
+    font-size: 16px;
+}
+
+.ds-field__hint--neutral {
+    color: var(--rz-text-secondary);
+}
+
+.ds-field--success .rz-dropdown,
+.ds-field--success .rz-textbox,
+.ds-field--success .rz-autocomplete {
+    border-color: var(--rz-success) !important;
+}
+.ds-field--success .ds-field__hint {
+    color: var(--rz-success);
+}
+
+.ds-field--warning .rz-dropdown,
+.ds-field--warning .rz-textbox,
+.ds-field--warning .rz-autocomplete {
+    border-color: var(--rz-warning) !important;
+}
+.ds-field--warning .ds-field__hint {
+    color: var(--rz-warning-dark, #C68746);
+}
+
+.ds-field--danger .rz-dropdown,
+.ds-field--danger .rz-textbox,
+.ds-field--danger .rz-autocomplete {
+    border-color: var(--rz-danger) !important;
+}
+.ds-field--danger .ds-field__hint {
+    color: var(--rz-danger);
+}

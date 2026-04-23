@@ -645,6 +645,43 @@
                 </Preview>
             </DsComponentDemo>
 
+            <DsComponentDemo Title="Dropdown — estados de validação"
+                             Description="Padrão Lar pra campos com feedback inline: borda colorida + ícone + hint abaixo. Use os hints de success/warning/danger quando o formulário já validou (não pra instruções neutras — essas ficam em caption cinza)."
+                             Code="@CodeDropdownValidation">
+                <Preview>
+                    <div class="ds-input-grid">
+                        <div class="ds-field ds-field--success">
+                            <label class="ds-input-label rz-text-caption">Unidade</label>
+                            <RadzenDropDown TValue="string" Data="@_opcoes" Value="@_opcoes[0]" Style="width: 100%" />
+                            <div class="ds-field__hint">
+                                <span class="material-icons">check_circle</span> Unidade encontrada
+                            </div>
+                        </div>
+                        <div class="ds-field ds-field--warning">
+                            <label class="ds-input-label rz-text-caption">Competência</label>
+                            <RadzenDropDown TValue="string" Data="@_opcoes" Placeholder="Selecione" Style="width: 100%" />
+                            <div class="ds-field__hint">
+                                <span class="material-icons">warning</span> Campo obrigatório — selecione antes de continuar
+                            </div>
+                        </div>
+                        <div class="ds-field ds-field--danger">
+                            <label class="ds-input-label rz-text-caption">CNPJ do cliente</label>
+                            <RadzenDropDown TValue="string" Data="@_opcoes" Placeholder="Não encontrado" Style="width: 100%" />
+                            <div class="ds-field__hint">
+                                <span class="material-icons">cancel</span> CNPJ inválido — verifique os dígitos
+                            </div>
+                        </div>
+                        <div class="ds-field">
+                            <label class="ds-input-label rz-text-caption">Tipo de operação (neutro)</label>
+                            <RadzenDropDown TValue="string" Data="@_opcoes" Placeholder="Selecione" Style="width: 100%" />
+                            <div class="ds-field__hint ds-field__hint--neutral">
+                                Informação auxiliar em texto caption
+                            </div>
+                        </div>
+                    </div>
+                </Preview>
+            </DsComponentDemo>
+
             <DsComponentDemo Title="Password — RadzenPassword"
                              Description="Campo mascarado com toggle de visibilidade. Use pra senhas, tokens e qualquer informação sensível."
                              Code="@CodePassword">
@@ -1054,6 +1091,18 @@
 <!-- Coloca no header pra usuário trocar entre light/dark em runtime -->";
 
     private const string CodeAutoComplete = @"<RadzenAutoComplete Data=""@_fontes"" Placeholder=""Digite pra filtrar"" />";
+
+    private const string CodeDropdownValidation = @"<!-- Wrapper ds-field + hint colorido abaixo do input -->
+<div class=""ds-field ds-field--success"">
+    <label class=""ds-input-label rz-text-caption"">Unidade</label>
+    <RadzenDropDown Data=""@_unidades"" @bind-Value=""_unidade"" />
+    <div class=""ds-field__hint"">
+        <span class=""material-icons"">check_circle</span> Unidade encontrada
+    </div>
+</div>
+
+<!-- Outros estados: .ds-field--warning, .ds-field--danger -->
+<!-- Hint neutro (instrução): .ds-field__hint--neutral -->";
 
     private const string CodeRadioList = @"<RadzenRadioButtonList @bind-Value=""_status"" TValue=""string"" Orientation=""Orientation.Vertical"">
     <Items>
