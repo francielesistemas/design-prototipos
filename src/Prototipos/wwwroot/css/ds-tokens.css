@@ -7,6 +7,98 @@
    e sombras. Nunca use valores hardcoded nos componentes da aplicacao.
    ========================================================================== */
 
+/* ==========================================================================
+   TIPOGRAFIA INSTITUCIONAL — CentraleSansRnd
+   12 variantes (Extra Light 200 -> Extra Bold 800, com italics).
+   Arquivos licenciados da Lar em wwwroot/assets/fonts/.
+   font-display: swap -> mostra Inter (fallback) enquanto a OTF baixa.
+   ========================================================================== */
+
+@font-face {
+    font-family: "CentraleSansRnd";
+    src: url("../assets/fonts/CentraleSansRnd-ExLight.otf") format("opentype");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CentraleSansRnd";
+    src: url("../assets/fonts/CentraleSansRnd-XLightItalic.otf") format("opentype");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CentraleSansRnd";
+    src: url("../assets/fonts/CentraleSansRnd-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CentraleSansRnd";
+    src: url("../assets/fonts/CentraleSansRnd-LightItalic.otf") format("opentype");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CentraleSansRnd";
+    src: url("../assets/fonts/CentraleSansRnd-Book.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CentraleSansRnd";
+    src: url("../assets/fonts/CentraleSansRnd-BookItalic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CentraleSansRnd";
+    src: url("../assets/fonts/CentraleSansRnd-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CentraleSansRnd";
+    src: url("../assets/fonts/CentraleSansRnd-MediumItalic.otf") format("opentype");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CentraleSansRnd";
+    src: url("../assets/fonts/CentraleSansRnd-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CentraleSansRnd";
+    src: url("../assets/fonts/CentraleSansRnd-BoldItalic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CentraleSansRnd";
+    src: url("../assets/fonts/CentraleSansRnd-XBold.otf") format("opentype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CentraleSansRnd";
+    src: url("../assets/fonts/CentraleSansRnd-XBoldItalic.otf") format("opentype");
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
 :root {
   /* ==========================================================================
      LAR COOPERATIVA - marca institucional
@@ -210,3 +302,38 @@ html, body {
 .rz-badge--status-rascunho   { background: var(--rz-base-200);       color: var(--rz-base-800); }
 .rz-badge--status-revisao    { background: rgba(236,161,84,.20);     color: var(--rz-warning-darker); }
 .rz-badge--status-aprovado   { background: rgba(50,120,54,.16);      color: var(--rz-success-darker); }
+
+/* ==========================================================================
+   Overrides dos componentes Radzen que nao puxam os tokens Lar corretamente
+   ========================================================================== */
+
+/* Switch — Radzen 5.x mantém thumb em azul Material 2 mesmo com primary customizado.
+   Força thumb branco em ambos estados e track vermelho Lar quando ativo. */
+.rz-switch .rz-switch-circle,
+.rz-switch-checked .rz-switch-circle {
+    background: #FFFFFF !important;
+    border: 1px solid var(--rz-base-300) !important;
+}
+
+.rz-switch-checked {
+    background: var(--rz-primary) !important;
+}
+
+.rz-switch {
+    background: var(--rz-base-400) !important;
+}
+
+/* DropDown item selecionado — garante contraste AA (vermelho Lar + texto branco) */
+.rz-dropdown-item.rz-state-highlight,
+.rz-listbox-item.rz-state-highlight,
+.rz-multiselect-item.rz-state-highlight {
+    background-color: var(--rz-primary) !important;
+    color: var(--rz-text-on-primary) !important;
+}
+
+/* Hover em itens de dropdown (nao selecionados) */
+.rz-dropdown-item:not(.rz-state-highlight):hover,
+.rz-listbox-item:not(.rz-state-highlight):hover {
+    background-color: var(--rz-base-100) !important;
+    color: var(--rz-base-900) !important;
+}

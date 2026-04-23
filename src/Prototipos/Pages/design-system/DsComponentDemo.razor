@@ -1,7 +1,7 @@
 @namespace Lar.Prototipos.Pages.DesignSystem
 @*
-    Bloco de demonstracao de componente com preview ao vivo + codigo.
-    Usado pra popular a secao Componentes da pagina de design system.
+    Bloco de demonstracao de componente com preview ao vivo + codigo (recolhivel).
+    O codigo fica oculto por padrao, com botao "Ver codigo" pra expandir.
 *@
 <div class="ds-demo">
     @if (!string.IsNullOrEmpty(Title))
@@ -21,13 +21,37 @@
 
     @if (!string.IsNullOrEmpty(Code))
     {
-        <div class="ds-demo__code-wrapper">
-            <div class="ds-demo__code-label">
-                <span class="material-icons" style="font-size:14px; vertical-align:middle;">code</span>
-                Código
-            </div>
-            <pre class="ds-demo__code"><code>@Code</code></pre>
+        <div class="ds-demo__code-bar">
+            <button type="button"
+                    class="ds-demo__code-toggle"
+                    @onclick="() => _showCode = !_showCode"
+                    aria-expanded="@_showCode">
+                <span class="material-icons ds-demo__code-toggle-icon">
+                    @(_showCode ? "expand_less" : "code")
+                </span>
+                @(_showCode ? "Ocultar código" : "Ver código")
+            </button>
+
+            @if (_showCode)
+            {
+                <button type="button"
+                        class="ds-demo__code-copy"
+                        title="Copiar código"
+                        @onclick="CopyCodeAsync">
+                    <span class="material-icons" style="font-size:16px;">
+                        @(_copied ? "check" : "content_copy")
+                    </span>
+                    @(_copied ? "Copiado!" : "Copiar")
+                </button>
+            }
         </div>
+
+        @if (_showCode)
+        {
+            <div class="ds-demo__code-wrapper">
+                <pre class="ds-demo__code"><code>@Code</code></pre>
+            </div>
+        }
     }
 </div>
 
@@ -36,4 +60,26 @@
     [Parameter] public string? Description { get; set; }
     [Parameter] public RenderFragment? Preview { get; set; }
     [Parameter] public string? Code { get; set; }
+    [Inject] private Microsoft.JSInterop.IJSRuntime JS { get; set; } = default!;
+
+    private bool _showCode = false;
+    private bool _copied = false;
+
+    private async Task CopyCodeAsync()
+    {
+        if (string.IsNullOrEmpty(Code)) return;
+        try
+        {
+            await JS.InvokeVoidAsync("navigator.clipboard.writeText", Code);
+            _copied = true;
+            StateHasChanged();
+            await Task.Delay(1500);
+            _copied = false;
+            StateHasChanged();
+        }
+        catch
+        {
+            // clipboard pode falhar em HTTP sem permissao; ignora silenciosamente
+        }
+    }
 }

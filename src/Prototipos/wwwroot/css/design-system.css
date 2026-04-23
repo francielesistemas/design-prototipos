@@ -600,15 +600,70 @@
     position: relative;
 }
 
-.ds-demo__code-label {
-    padding: 6px var(--rz-space-4);
-    font-family: "SFMono-Regular", Consolas, monospace;
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.6);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+/* Barra do toggle "Ver codigo" + botao de copiar */
+.ds-demo__code-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--rz-space-2);
+    padding: 6px var(--rz-space-3);
+    border-top: 1px solid var(--rz-divider);
+    background: var(--rz-base-50);
+}
+
+.ds-demo__code-toggle {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: var(--rz-border-radius);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    color: var(--rz-primary);
+    transition: background 0.12s;
+}
+
+.ds-demo__code-toggle:hover {
+    background: rgba(228, 0, 70, 0.08);
+}
+
+.ds-demo__code-toggle:focus-visible {
+    outline: 2px solid var(--rz-primary);
+    outline-offset: 2px;
+}
+
+.ds-demo__code-toggle-icon {
+    font-size: 16px;
+}
+
+.ds-demo__code-copy {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--rz-border-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: var(--rz-border-radius);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
     font-weight: 500;
+    color: var(--rz-text-secondary);
+    transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.ds-demo__code-copy:hover {
+    background: var(--rz-base-0);
+    color: var(--rz-base-900);
+    border-color: var(--rz-base-500);
 }
 
 .ds-demo__code {
