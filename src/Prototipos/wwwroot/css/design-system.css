@@ -50,11 +50,17 @@
 
 .ds-toc__link {
     display: block;
+    width: 100%;
+    text-align: left;
     padding: 8px 10px;
+    border: none;
+    background: transparent;
     border-radius: var(--rz-border-radius);
     font-size: 13px;
+    font-family: inherit;
     color: var(--rz-text-color);
     text-decoration: none;
+    cursor: pointer;
     transition: background 0.12s, color 0.12s;
     border-left: 2px solid transparent;
 }
@@ -63,6 +69,13 @@
     background: var(--rz-base-100);
     color: var(--rz-primary);
     border-left-color: var(--rz-primary);
+}
+
+.ds-toc__link--active {
+    background: var(--rz-base-100);
+    color: var(--rz-primary);
+    border-left-color: var(--rz-primary);
+    font-weight: 500;
 }
 
 /* ---------- Main column ---------- */

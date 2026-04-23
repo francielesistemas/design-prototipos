@@ -10,24 +10,22 @@
         <div class="ds-sidebar__inner">
             <div class="ds-sidebar__eyebrow rz-text-overline">Navegação</div>
             <nav class="ds-toc">
-                <a href="design-system#intro" class="ds-toc__link">Introdução</a>
-                <a href="design-system#marca" class="ds-toc__link">Marca e logos</a>
-                <a href="design-system#cores-cooperativa" class="ds-toc__link">Cores — Cooperativa</a>
-                <a href="design-system#cores-agro" class="ds-toc__link">Cores — Lar Agro</a>
-                <a href="design-system#cores-foods" class="ds-toc__link">Cores — Lar Foods</a>
-                <a href="design-system#cores-super" class="ds-toc__link">Cores — Lar Supermercados</a>
-                <a href="design-system#cores-semanticas" class="ds-toc__link">Cores semânticas</a>
-                <a href="design-system#cores-neutras" class="ds-toc__link">Superfícies e neutros</a>
-                <a href="design-system#tipografia" class="ds-toc__link">Tipografia</a>
-                <a href="design-system#espacamento" class="ds-toc__link">Espaçamento</a>
-                <a href="design-system#sombras" class="ds-toc__link">Sombras</a>
-                <a href="design-system#componentes" class="ds-toc__link">Componentes</a>
+                @foreach (var item in _sections)
+                {
+                    <button type="button"
+                            class="@(item.Id == _active ? "ds-toc__link ds-toc__link--active" : "ds-toc__link")"
+                            @onclick="() => _active = item.Id">
+                        @item.Label
+                    </button>
+                }
             </nav>
         </div>
     </aside>
 
     <main class="ds-main">
 
+        @if (_active == "intro")
+        {
         <!-- ===== INTRO ===== -->
         <section id="intro" class="ds-section ds-hero">
             <div class="ds-hero__eyebrow rz-text-overline">Design System</div>
@@ -56,6 +54,9 @@
             </div>
         </section>
 
+        }
+        @if (_active == "marca")
+        {
         <!-- ===== MARCA ===== -->
         <section id="marca" class="ds-section">
             <header class="ds-section__header">
@@ -127,6 +128,9 @@
             </div>
         </section>
 
+        }
+        @if (_active == "cores-cooperativa")
+        {
         <!-- ===== CORES COOPERATIVA ===== -->
         <section id="cores-cooperativa" class="ds-section">
             <header class="ds-section__header">
@@ -156,6 +160,9 @@
             </div>
         </section>
 
+        }
+        @if (_active == "cores-agro")
+        {
         <!-- ===== CORES LAR AGRO ===== -->
         <section id="cores-agro" class="ds-section">
             <header class="ds-section__header">
@@ -186,6 +193,9 @@
             </div>
         </section>
 
+        }
+        @if (_active == "cores-foods")
+        {
         <!-- ===== CORES LAR FOODS ===== -->
         <section id="cores-foods" class="ds-section">
             <header class="ds-section__header">
@@ -214,6 +224,9 @@
             </div>
         </section>
 
+        }
+        @if (_active == "cores-super")
+        {
         <!-- ===== CORES LAR SUPERMERCADOS ===== -->
         <section id="cores-super" class="ds-section">
             <header class="ds-section__header">
@@ -251,6 +264,9 @@
             </div>
         </section>
 
+        }
+        @if (_active == "cores-semanticas")
+        {
         <!-- ===== CORES SEMÂNTICAS ===== -->
         <section id="cores-semanticas" class="ds-section">
             <header class="ds-section__header">
@@ -272,6 +288,9 @@
             </div>
         </section>
 
+        }
+        @if (_active == "cores-neutras")
+        {
         <!-- ===== CORES NEUTRAS ===== -->
         <section id="cores-neutras" class="ds-section">
             <header class="ds-section__header">
@@ -299,6 +318,9 @@
             </div>
         </section>
 
+        }
+        @if (_active == "tipografia")
+        {
         <!-- ===== TIPOGRAFIA ===== -->
         <section id="tipografia" class="ds-section">
             <header class="ds-section__header">
@@ -327,6 +349,9 @@
             </div>
         </section>
 
+        }
+        @if (_active == "espacamento")
+        {
         <!-- ===== ESPAÇAMENTO ===== -->
         <section id="espacamento" class="ds-section">
             <header class="ds-section__header">
@@ -349,6 +374,9 @@
             </div>
         </section>
 
+        }
+        @if (_active == "sombras")
+        {
         <!-- ===== SOMBRAS ===== -->
         <section id="sombras" class="ds-section">
             <header class="ds-section__header">
@@ -373,6 +401,9 @@
             </div>
         </section>
 
+        }
+        @if (_active == "componentes")
+        {
         <!-- ===== COMPONENTES ===== -->
         <section id="componentes" class="ds-section">
             <header class="ds-section__header">
@@ -671,11 +702,31 @@
                 </Preview>
             </DsComponentDemo>
         </section>
+        }
 
     </main>
 </div>
 
 @code {
+    private string _active = "intro";
+
+    private record NavItem(string Id, string Label);
+    private readonly NavItem[] _sections = new[]
+    {
+        new NavItem("intro", "Introdução"),
+        new NavItem("marca", "Marca e logos"),
+        new NavItem("cores-cooperativa", "Cores — Cooperativa"),
+        new NavItem("cores-agro", "Cores — Lar Agro"),
+        new NavItem("cores-foods", "Cores — Lar Foods"),
+        new NavItem("cores-super", "Cores — Lar Supermercados"),
+        new NavItem("cores-semanticas", "Cores semânticas"),
+        new NavItem("cores-neutras", "Superfícies e neutros"),
+        new NavItem("tipografia", "Tipografia"),
+        new NavItem("espacamento", "Espaçamento"),
+        new NavItem("sombras", "Sombras"),
+        new NavItem("componentes", "Componentes"),
+    };
+
     // ---- Dados de exemplo pra inputs ----
     private string[] _opcoes = new[] { "Opção A", "Opção B", "Opção C" };
     private DateTime? _exemploData = DateTime.Today;
