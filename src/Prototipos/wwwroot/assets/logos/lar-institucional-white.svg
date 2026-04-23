@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" role="img" aria-label="Lar Cooperativa Agroindustrial">
+  <title>Lar — Cooperativa Agroindustrial (branco)</title>
+  <desc>Logo institucional branca pra fundos escuros. Aproximação — substituir pelo SVG oficial.</desc>
+
+  <path d="M 220 30
+           C 195 -5, 155 5, 155 55
+           C 155 95, 195 135, 230 155
+           C 250 135, 290 110, 305 80
+           C 320 50, 305 15, 275 15
+           C 250 15, 235 25, 220 40 Z"
+        fill="#FFFFFF"/>
+
+  <text x="30" y="340"
+        font-family="'Inter', 'Segoe UI', system-ui, sans-serif"
+        font-size="260"
+        font-weight="900"
+        letter-spacing="-10"
+        fill="#FFFFFF">Lar</text>
+
+  <text x="500" y="180"
+        font-family="'Inter', 'Segoe UI', system-ui, sans-serif"
+        font-size="90"
+        font-weight="700"
+        letter-spacing="2"
+        fill="#FFFFFF">COOPERATIVA</text>
+  <text x="500" y="290"
+        font-family="'Inter', 'Segoe UI', system-ui, sans-serif"
+        font-size="90"
+        font-weight="700"
+        letter-spacing="2"
+        fill="#FFFFFF">AGROINDUSTRIAL</text>
+</svg>

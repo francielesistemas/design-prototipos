@@ -26,18 +26,14 @@
 }
 
 .app-header__logo {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: var(--rz-border-radius);
     background: var(--rz-primary);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 20px;
-    letter-spacing: 0;
+    padding: 6px;
     box-shadow: var(--rz-shadow-2);
+    flex-shrink: 0;
+    object-fit: contain;
 }
 
 .app-header__name {
@@ -82,5 +78,14 @@
 }
 
 .app-header__link:hover {
-    background: rgba(219, 32, 64, 0.16);
+    background: rgba(228, 0, 70, 0.14);
+}
+
+.app-header__link--ghost {
+    color: var(--rz-text-secondary);
+}
+
+.app-header__link--ghost:hover {
+    background: var(--rz-base-100);
+    color: var(--rz-base-900);
 }

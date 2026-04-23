@@ -1,0 +1,18 @@
+@namespace Lar.Prototipos.Pages.DesignSystem
+@*
+    Linha de amostra de token de espacamento.
+*@
+<div class="ds-space-row">
+    <div class="ds-space-row__bar" style="width: @(Value)px;"></div>
+    <div class="ds-space-row__info">
+        <div class="ds-space-row__token"><code>@Token</code></div>
+        <div class="ds-space-row__value">@Value px</div>
+        <div class="ds-space-row__uses">@Uses</div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Token { get; set; } = "";
+    [Parameter] public int Value { get; set; }
+    [Parameter] public string Uses { get; set; } = "";
+}

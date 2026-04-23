@@ -1,0 +1,21 @@
+@namespace Lar.Prototipos.Pages.DesignSystem
+@*
+    Linha de amostra de tipografia.
+*@
+<div class="ds-type-row">
+    <div class="ds-type-row__example @Token">@Example</div>
+    <div class="ds-type-row__specs">
+        <div class="ds-type-row__token"><code>.@Token</code></div>
+        <div class="ds-type-row__spec">
+            <span>@Size</span> · <span>@Weight</span> · <span>line-height @LineHeight</span>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Token { get; set; } = "";
+    [Parameter] public string Size { get; set; } = "";
+    [Parameter] public string Weight { get; set; } = "";
+    [Parameter] public string LineHeight { get; set; } = "";
+    [Parameter] public string Example { get; set; } = "";
+}

@@ -1,0 +1,34 @@
+@namespace Lar.Prototipos.Pages.DesignSystem
+@*
+    Card de amostra de cor do design system.
+    Mostra a cor, nome, hex, CSS variable, Pantone e nota de uso.
+*@
+<div class="ds-swatch @(IsDark ? "ds-swatch--dark" : "ds-swatch--light")">
+    <div class="ds-swatch__fill" style="background: @Hex;">
+        @if (!string.IsNullOrEmpty(Pantone))
+        {
+            <div class="ds-swatch__pantone">@Pantone</div>
+        }
+    </div>
+    <div class="ds-swatch__meta">
+        <div class="ds-swatch__name">@Name</div>
+        <div class="ds-swatch__hex">@Hex</div>
+        <div class="ds-swatch__var"><code>var(@VarName)</code></div>
+        @if (!string.IsNullOrEmpty(Note))
+        {
+            <div class="ds-swatch__note">@Note</div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Name { get; set; } = "";
+    [Parameter] public string Hex { get; set; } = "#000000";
+    [Parameter] public string VarName { get; set; } = "";
+    [Parameter] public string? Pantone { get; set; }
+    [Parameter] public string? Note { get; set; }
+    /// <summary>
+    /// Quando true, o fundo é escuro o suficiente pra usar texto branco por cima.
+    /// </summary>
+    [Parameter] public bool IsDark { get; set; }
+}

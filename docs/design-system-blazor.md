@@ -680,4 +680,95 @@ Para componentes profundamente aninhados (DataGrid, DatePicker, HtmlEditor) use 
 
 ---
 
-*Fim do spec. Versão gerada a partir do arquivo Figma em 22/04/2026.*
+## 11. Extensões Lar — marca institucional e áreas de negócio
+
+Este apêndice **estende** o spec do Radzen Material com a identidade visual da Cooperativa Lar.
+Adicionado em 23/04/2026 a partir do manual de marca.
+
+### 11.1. Marca institucional
+
+A primária do sistema (`--rz-primary`) passa a ser o **vermelho oficial da Lar** (Pantone 710 C, `#E40046`), que é o vermelho do coração do logo. A escala `lighter/light/default/dark/darker` foi regerada em cima desse valor.
+
+Também é adicionado um token **marrom institucional** (`--rz-brand-brown: #3B302D`), correspondente à cor do wordmark "Lar" em materiais institucionais.
+
+**Logos disponíveis em `wwwroot/assets/logos/`:**
+
+| Arquivo | Uso |
+|---------|-----|
+| `lar-symbol-color.svg` | Símbolo (coração + "Lar"), fundo claro |
+| `lar-symbol-white.svg` | Símbolo, fundo escuro ou colorido |
+| `lar-institucional-color.svg` | Símbolo + "Cooperativa Agroindustrial", fundo claro |
+| `lar-institucional-white.svg` | Institucional, fundo escuro |
+
+> Os SVGs atuais são **aproximações** a partir do manual. Substituir pelos SVGs oficiais do marketing mantendo os mesmos nomes de arquivo — todas as referências continuam funcionando.
+
+### 11.2. Paleta Lar Agro
+
+Área de agronegócio. Tons verdes modernos, moderno e referencial ao setor.
+
+| Token | Hex | Pantone |
+|-------|-----|---------|
+| `--rz-agro-primary-dark`  | `#00594C` | 626 C  |
+| `--rz-agro-primary-light` | `#6CC24A` | 360 C  |
+| `--rz-agro-secondary-1`   | `#3A913F` | 7740 C |
+| `--rz-agro-secondary-2`   | `#DBE442` | 380 C  |
+| `--rz-agro-secondary-3`   | `#ECA154` | 157 C  |
+| `--rz-agro-secondary-4`   | `#FFB500` | 7549 C |
+| `--rz-agro-secondary-5`   | `#F7EA48` | 101 C  |
+| `--rz-agro-secondary-6`   | `#E03E52` | 710 C  |
+
+### 11.3. Paleta Lar Foods
+
+Produtos alimentícios. Cores quentes com apelo gastronômico.
+
+| Token | Hex | Pantone |
+|-------|-----|---------|
+| `--rz-foods-primary-1`   | `#FFB500` | 7549 C |
+| `--rz-foods-primary-2`   | `#E40046` | 710 C  |
+| `--rz-foods-secondary-1` | `#8A1B61` | 7649 C |
+| `--rz-foods-secondary-2` | `#FF7F41` | 164 C  |
+| `--rz-foods-secondary-3` | `#ECA154` | 157 C  |
+| `--rz-foods-secondary-4` | `#F7EA48` | 101 C  |
+
+### 11.4. Paleta Lar Supermercados
+
+Rede de supermercados da Lar. Paleta ampla pra refletir variedade de produtos e seções.
+
+| Token | Hex | Pantone |
+|-------|-----|---------|
+| `--rz-super-primary-1`    | `#470A68` | 2617 C |
+| `--rz-super-primary-2`    | `#E40046` | 710 C  |
+| `--rz-super-secondary-1`  | `#8A1B61` | 7649 C |
+| `--rz-super-secondary-2`  | `#FF7F41` | 164 C  |
+| `--rz-super-secondary-3`  | `#ECA154` | 157 C  |
+| `--rz-super-secondary-4`  | `#FFB500` | 7549 C |
+| `--rz-super-secondary-5`  | `#F7EA48` | 101 C  |
+| `--rz-super-secondary-6`  | `#DBE442` | 380 C  |
+| `--rz-super-secondary-7`  | `#6CC24A` | 360 C  |
+| `--rz-super-secondary-8`  | `#3A913F` | 7740 C |
+| `--rz-super-secondary-9`  | `#00594C` | 626 C  |
+| `--rz-super-secondary-10` | `#003DA5` | 7692 C |
+| `--rz-super-secondary-11` | `#0072CE` | 285 C  |
+| `--rz-super-secondary-12` | `#418FDE` | 279 C  |
+| `--rz-super-secondary-13` | `#9BCBEB` | 291 C  |
+
+### 11.5. Consumo nos protótipos
+
+- Produtos voltados à **marca institucional** usam `--rz-primary` (vermelho Lar) e tons semânticos padrão.
+- Protótipos específicos de uma área (ex: app interno do agro) devem trocar o primary pela paleta da área **apenas no tema daquele fluxo** — nunca sobrescrever globalmente.
+- Um padrão de escopo recomendado:
+  ```css
+  .fluxo-agro {
+    --rz-primary: var(--rz-agro-primary-dark);
+    --rz-primary-dark: var(--rz-agro-primary-dark);
+    /* ... */
+  }
+  ```
+
+### 11.6. Página interativa
+
+A **página viva do design system** está em `/design-system` (ou `/ds`) do aplicativo. Mostra logos, paletas, tipografia, espaçamento, sombras e componentes renderizados ao vivo — use ela como referência visual no dia-a-dia.
+
+---
+
+*Fim do spec. Versão gerada a partir do arquivo Figma em 22/04/2026. Extensão Lar em 23/04/2026.*

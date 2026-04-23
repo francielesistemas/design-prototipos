@@ -8,12 +8,20 @@
    ========================================================================== */
 
 :root {
-  /* ---------- Cores semanticas (brand) ---------- */
-  --rz-primary-lighter: #E1445F;
-  --rz-primary-light:   #E1445F;
-  --rz-primary:         #DB2040;
-  --rz-primary-dark:    #B81B36;
-  --rz-primary-darker:  #A3122B;
+  /* ==========================================================================
+     LAR COOPERATIVA - marca institucional
+     ========================================================================== */
+
+  /* Vermelho oficial da Lar (coracao do logo institucional). Pantone 710 C. */
+  --rz-primary-lighter: #FF4F7B;
+  --rz-primary-light:   #EE2F63;
+  --rz-primary:         #E40046;
+  --rz-primary-dark:    #B8003A;
+  --rz-primary-darker:  #8E002D;
+
+  /* Marrom institucional (texto do logo "Lar"). Usado em texto forte sobre fundo claro. */
+  --rz-brand-brown:       #3B302D;
+  --rz-brand-brown-dark:  #2A2220;
 
   --rz-secondary-lighter: #EEEEEE;
   --rz-secondary-light:   #EEEEEE;
@@ -44,6 +52,51 @@
   --rz-danger:         #CC3043;
   --rz-danger-dark:    #AB2838;
   --rz-danger-darker:  #8E1E2C;
+
+  /* ==========================================================================
+     LAR AGRO - paleta de agronegocio
+     Primarias identificam a area em papelaria e fachada.
+     Secundarias dao apoio em comunicacao e ambientacao.
+     ========================================================================== */
+  --rz-agro-primary-dark:  #00594C;  /* Pantone 626 C - verde escuro */
+  --rz-agro-primary-light: #6CC24A;  /* Pantone 360 C - verde claro  */
+  --rz-agro-secondary-1:   #3A913F;  /* Pantone 7740 C */
+  --rz-agro-secondary-2:   #DBE442;  /* Pantone 380 C  */
+  --rz-agro-secondary-3:   #ECA154;  /* Pantone 157 C  */
+  --rz-agro-secondary-4:   #FFB500;  /* Pantone 7549 C */
+  --rz-agro-secondary-5:   #F7EA48;  /* Pantone 101 C  */
+  --rz-agro-secondary-6:   #E03E52;  /* Pantone 710 C  */
+
+  /* ==========================================================================
+     LAR FOODS - paleta de produtos alimenticios
+     Cores quentes, tons modernos, categoria de alimentos.
+     ========================================================================== */
+  --rz-foods-primary-1:    #FFB500;  /* Pantone 7549 C - amarelo */
+  --rz-foods-primary-2:    #E40046;  /* Pantone 710 C  - vermelho */
+  --rz-foods-secondary-1:  #8A1B61;  /* Pantone 7649 C */
+  --rz-foods-secondary-2:  #FF7F41;  /* Pantone 164 C  */
+  --rz-foods-secondary-3:  #ECA154;  /* Pantone 157 C  */
+  --rz-foods-secondary-4:  #F7EA48;  /* Pantone 101 C  */
+
+  /* ==========================================================================
+     LAR SUPERMERCADOS - paleta mais diversa
+     Referencia a variedade de produtos e secoes dos supermercados.
+     ========================================================================== */
+  --rz-super-primary-1:    #470A68;  /* Pantone 2617 C - roxo */
+  --rz-super-primary-2:    #E40046;  /* Pantone 710 C  - vermelho */
+  --rz-super-secondary-1:  #8A1B61;  /* Pantone 7649 C */
+  --rz-super-secondary-2:  #FF7F41;  /* Pantone 164 C  */
+  --rz-super-secondary-3:  #ECA154;  /* Pantone 157 C  */
+  --rz-super-secondary-4:  #FFB500;  /* Pantone 7549 C */
+  --rz-super-secondary-5:  #F7EA48;  /* Pantone 101 C  */
+  --rz-super-secondary-6:  #DBE442;  /* Pantone 380 C  */
+  --rz-super-secondary-7:  #6CC24A;  /* Pantone 360 C  */
+  --rz-super-secondary-8:  #3A913F;  /* Pantone 7740 C */
+  --rz-super-secondary-9:  #00594C;  /* Pantone 626 C  */
+  --rz-super-secondary-10: #003DA5;  /* Pantone 7692 C */
+  --rz-super-secondary-11: #0072CE;  /* Pantone 285 C  */
+  --rz-super-secondary-12: #418FDE;  /* Pantone 279 C  */
+  --rz-super-secondary-13: #9BCBEB;  /* Pantone 291 C  */
 
   /* ---------- Superficies / neutros ---------- */
   --rz-base-0:    #FFFFFF;

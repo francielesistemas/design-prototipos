@@ -1,0 +1,18 @@
+@namespace Lar.Prototipos.Pages.DesignSystem
+@*
+    Card demonstrando um nivel de sombra.
+*@
+<div class="ds-shadow-card">
+    <div class="ds-shadow-card__sample" style="box-shadow: var(--rz-shadow-@Level);">
+        rz-shadow-@Level
+    </div>
+    <div class="ds-shadow-card__meta">
+        <div class="ds-shadow-card__token"><code>var(--rz-shadow-@Level)</code></div>
+        <div class="ds-shadow-card__uses">@Uses</div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public int Level { get; set; } = 1;
+    [Parameter] public string Uses { get; set; } = "";
+}
