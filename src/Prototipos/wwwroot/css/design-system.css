@@ -799,3 +799,49 @@
 .ds-panelmenu-preview__item .material-icons {
     font-size: 18px;
 }
+
+/* Ordenação & filtro — menus de lista */
+.ds-sort-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.ds-sort-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 260px;
+    padding: 12px;
+    background: var(--rz-base-0);
+    border: 1px solid var(--rz-base-200);
+    border-radius: var(--rz-border-radius);
+}
+
+.ds-sort-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 10px;
+    background: transparent;
+    border: none;
+    border-radius: var(--rz-border-radius);
+    font: inherit;
+    color: var(--rz-text-color);
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+}
+
+.ds-sort-item:hover {
+    background: var(--rz-base-100);
+}
+
+.ds-sort-item--active {
+    color: var(--rz-primary);
+    font-weight: 500;
+}
+
+.ds-sort-item .material-icons {
+    font-size: 18px;
+}

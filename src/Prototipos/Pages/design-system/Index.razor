@@ -571,6 +571,118 @@
                 </Preview>
             </DsComponentDemo>
 
+            <DsComponentDemo Title="AutoComplete — RadzenAutoComplete"
+                             Description="Campo de texto com sugestões filtradas em tempo real. Ideal pra buscar itens em listas grandes (clientes, produtos, contas contábeis)."
+                             Code="@CodeAutoComplete">
+                <Preview>
+                    <div class="ds-input-grid">
+                        <div>
+                            <label class="ds-input-label rz-text-caption">Digite pra filtrar</label>
+                            <RadzenAutoComplete Data="@_opcoes" Placeholder="Ex: Opção..." Style="width: 100%" />
+                        </div>
+                        <div>
+                            <label class="ds-input-label rz-text-caption">Desabilitado</label>
+                            <RadzenAutoComplete Data="@_opcoes" Placeholder="Indisponível" Disabled="true" Style="width: 100%" />
+                        </div>
+                    </div>
+                </Preview>
+            </DsComponentDemo>
+
+            <DsComponentDemo Title="RadioButtonList — RadzenRadioButtonList"
+                             Description="Seleção única entre opções mutuamente exclusivas. Use vertical pra listas longas, horizontal pra 2–3 opções curtas."
+                             Code="@CodeRadioList">
+                <Preview>
+                    <div class="ds-input-grid">
+                        <div>
+                            <label class="ds-input-label rz-text-caption">Vertical</label>
+                            <RadzenRadioButtonList @bind-Value="_radioSel" TValue="string" Orientation="Orientation.Vertical">
+                                <Items>
+                                    <RadzenRadioButtonListItem Text="Rascunho" Value="@("rascunho")" />
+                                    <RadzenRadioButtonListItem Text="Em revisão" Value="@("revisao")" />
+                                    <RadzenRadioButtonListItem Text="Aprovado" Value="@("aprovado")" />
+                                    <RadzenRadioButtonListItem Text="Cancelado" Value="@("cancelado")" Disabled="true" />
+                                </Items>
+                            </RadzenRadioButtonList>
+                        </div>
+                        <div>
+                            <label class="ds-input-label rz-text-caption">Horizontal</label>
+                            <RadzenRadioButtonList @bind-Value="_radioSel2" TValue="string" Orientation="Orientation.Horizontal">
+                                <Items>
+                                    <RadzenRadioButtonListItem Text="Sim" Value="@("sim")" />
+                                    <RadzenRadioButtonListItem Text="Não" Value="@("nao")" />
+                                    <RadzenRadioButtonListItem Text="N/A" Value="@("na")" />
+                                </Items>
+                            </RadzenRadioButtonList>
+                        </div>
+                    </div>
+                </Preview>
+            </DsComponentDemo>
+
+            <DsComponentDemo Title="CheckBoxList — RadzenCheckBoxList"
+                             Description="Seleção múltipla. Estados: checked, unchecked e tri-state (parcial) quando usado como 'pai' de sub-itens."
+                             Code="@CodeCheckList">
+                <Preview>
+                    <div class="ds-input-grid">
+                        <div>
+                            <label class="ds-input-label rz-text-caption">Status visíveis</label>
+                            <RadzenCheckBoxList @bind-Value="_checks" TValue="string" Orientation="Orientation.Vertical">
+                                <Items>
+                                    <RadzenCheckBoxListItem Text="Rascunho" Value="@("rascunho")" />
+                                    <RadzenCheckBoxListItem Text="Em revisão" Value="@("revisao")" />
+                                    <RadzenCheckBoxListItem Text="Aprovado" Value="@("aprovado")" />
+                                    <RadzenCheckBoxListItem Text="Cancelado" Value="@("cancelado")" Disabled="true" />
+                                </Items>
+                            </RadzenCheckBoxList>
+                        </div>
+                        <div>
+                            <label class="ds-input-label rz-text-caption">Tri-state individual</label>
+                            <RadzenCheckBox @bind-Value="_triBool" TValue="bool?" TriState="true" />
+                            <RadzenText TextStyle="TextStyle.Caption" Style="display: block; margin-top: 8px; color: var(--rz-text-secondary)">
+                                Clique pra alternar: marcado → parcial → vazio
+                            </RadzenText>
+                        </div>
+                    </div>
+                </Preview>
+            </DsComponentDemo>
+
+            <DsComponentDemo Title="Password — RadzenPassword"
+                             Description="Campo mascarado com toggle de visibilidade. Use pra senhas, tokens e qualquer informação sensível."
+                             Code="@CodePassword">
+                <Preview>
+                    <div class="ds-input-grid">
+                        <div>
+                            <label class="ds-input-label rz-text-caption">Senha</label>
+                            <RadzenPassword Placeholder="Digite a senha" Style="width: 100%" />
+                        </div>
+                        <div>
+                            <label class="ds-input-label rz-text-caption">Confirmação</label>
+                            <RadzenPassword Placeholder="Confirme a senha" Style="width: 100%" />
+                        </div>
+                    </div>
+                </Preview>
+            </DsComponentDemo>
+
+            <DsComponentDemo Title="Rating — RadzenRating"
+                             Description="Avaliação por estrelas. Suporta modo somente-leitura (exibir nota fixa) e disabled."
+                             Code="@CodeRating">
+                <Preview>
+                    <div class="ds-input-grid">
+                        <div>
+                            <label class="ds-input-label rz-text-caption">Avalie (0–5)</label>
+                            <RadzenRating @bind-Value="_rating" />
+                        </div>
+                        <div>
+                            <label class="ds-input-label rz-text-caption">Somente leitura</label>
+                            <RadzenRating Value="4" ReadOnly="true" />
+                        </div>
+                        <div>
+                            <label class="ds-input-label rz-text-caption">Disabled</label>
+                            <RadzenRating Value="3" Disabled="true" />
+                        </div>
+                    </div>
+                </Preview>
+            </DsComponentDemo>
+
             <!-- ========== NAVEGAÇÃO ========== -->
             <div class="ds-palette-group__title rz-text-subtitle2" style="margin-top: var(--rz-space-6);">Navegação</div>
 
@@ -672,6 +784,69 @@
                 </Preview>
             </DsComponentDemo>
 
+            <DsComponentDemo Title="Tooltip — RadzenTooltip"
+                             Description="Dica contextual no hover. Fundo escuro (base-900), texto branco, sombra suave. Use pra explicar ícones e ações não-óbvias."
+                             Code="@CodeTooltip">
+                <Preview>
+                    <div class="ds-btn-row">
+                        <RadzenButton Text="Hover (Info)" MouseEnter="@(args => ShowTooltip(args, "Informação adicional", TooltipPosition.Top))" />
+                        <RadzenButton Text="Hover (Success)" ButtonStyle="ButtonStyle.Success" MouseEnter="@(args => ShowTooltip(args, "Tudo certo", TooltipPosition.Bottom))" />
+                        <RadzenButton Text="Hover (Danger)" ButtonStyle="ButtonStyle.Danger" MouseEnter="@(args => ShowTooltip(args, "Cuidado — ação irreversível", TooltipPosition.Right))" />
+                    </div>
+                </Preview>
+            </DsComponentDemo>
+
+            <!-- ========== DADOS ========== -->
+            <div class="ds-palette-group__title rz-text-subtitle2" style="margin-top: var(--rz-space-6);">Dados</div>
+
+            <DsComponentDemo Title="DataGrid — RadzenDataGrid"
+                             Description="Tabela densa com sort, filtro, paginação e seleção. Linha selecionada usa primary com alpha 16% como fundo."
+                             Code="@CodeDataGrid">
+                <Preview>
+                    <RadzenDataGrid Data="@_gridRows" TItem="GridRow" AllowSorting="true" AllowFiltering="true" AllowPaging="true" PageSize="5" Style="width: 100%">
+                        <Columns>
+                            <RadzenDataGridColumn TItem="GridRow" Property="Codigo" Title="Código" Width="100px" />
+                            <RadzenDataGridColumn TItem="GridRow" Property="Descricao" Title="Descrição" />
+                            <RadzenDataGridColumn TItem="GridRow" Property="Status" Title="Status" Width="140px" />
+                            <RadzenDataGridColumn TItem="GridRow" Property="Valor" Title="Valor" FormatString="{0:C}" TextAlign="TextAlign.Right" Width="120px" />
+                        </Columns>
+                    </RadzenDataGrid>
+                </Preview>
+            </DsComponentDemo>
+
+            <DsComponentDemo Title="Ordenação & filtro (composição)"
+                             Description="Padrão pra menus suspensos de ordenar/filtrar — tipicamente em toolbars de listas. Item ativo herda cor primary."
+                             Code="@CodeOrdenacao">
+                <Preview>
+                    <div class="ds-sort-row">
+                        <div class="ds-sort-card">
+                            <div class="rz-text-overline" style="color: var(--rz-text-secondary); margin-bottom: 8px;">Ordenar por</div>
+                            <button class="ds-sort-item ds-sort-item--active" type="button">
+                                <span class="material-icons">schedule</span> Adicionados recentemente
+                            </button>
+                            <button class="ds-sort-item" type="button">
+                                <span class="material-icons">schedule</span> Adicionados anteriormente
+                            </button>
+                            <button class="ds-sort-item" type="button">
+                                <span class="material-icons">sort_by_alpha</span> Alfabético crescente
+                            </button>
+                            <button class="ds-sort-item" type="button">
+                                <span class="material-icons">sort_by_alpha</span> Alfabético decrescente
+                            </button>
+                        </div>
+                        <div class="ds-sort-card">
+                            <div class="rz-text-overline" style="color: var(--rz-text-secondary); margin-bottom: 8px;">Filtrar por</div>
+                            <button class="ds-sort-item ds-sort-item--active" type="button">
+                                <span class="material-icons" style="color: var(--rz-success);">thumb_up</span> Avaliações positivas
+                            </button>
+                            <button class="ds-sort-item" type="button">
+                                <span class="material-icons" style="color: var(--rz-danger);">thumb_down</span> Avaliações negativas
+                            </button>
+                        </div>
+                    </div>
+                </Preview>
+            </DsComponentDemo>
+
             <!-- ========== DATA VIZ ========== -->
             <div class="ds-palette-group__title rz-text-subtitle2" style="margin-top: var(--rz-space-6);">Visualização de dados</div>
 
@@ -707,8 +882,15 @@
     </main>
 </div>
 
+@inject TooltipService TooltipService
+
 @code {
     private string _active = "intro";
+
+    private void ShowTooltip(ElementReference elem, string text, TooltipPosition position)
+        => TooltipService.Open(elem, text, new TooltipOptions { Position = position, Duration = 2500 });
+
+
 
     private record NavItem(string Id, string Label);
     private readonly NavItem[] _sections = new[]
@@ -733,6 +915,24 @@
     private int _exemploNumero = 42;
     private bool _exemploBool = true;
     private string _exemploTexto = "";
+    private string _radioSel = "revisao";
+    private string _radioSel2 = "sim";
+    private IEnumerable<string> _checks = new[] { "aprovado" };
+    private bool? _triBool = null;
+    private int _rating = 3;
+
+    // ---- DataGrid ----
+    private record GridRow(string Codigo, string Descricao, string Status, decimal Valor);
+    private IList<GridRow> _gridRows = new List<GridRow>
+    {
+        new("001", "Fertilizante NPK 10-10-10", "Aprovado", 12450.00m),
+        new("002", "Soja em grão — lote SC-2024", "Em revisão", 87300.50m),
+        new("003", "Ração suína crescimento", "Aprovado", 3210.75m),
+        new("004", "Milho exportação — sacaria", "Rascunho", 45820.00m),
+        new("005", "Óleo de soja refinado", "Aprovado", 19850.40m),
+        new("006", "Farelo de soja 48%", "Em revisão", 6730.00m),
+        new("007", "Frango congelado — caixa 18kg", "Aprovado", 2180.90m),
+    };
 
     // ---- Dados de exemplo pra charts ----
     private record AcessoPorMes(string Mes, double Acessos);
@@ -852,4 +1052,57 @@
 
     private const string CodeAppearanceToggle = @"<RadzenAppearanceToggle />
 <!-- Coloca no header pra usuário trocar entre light/dark em runtime -->";
+
+    private const string CodeAutoComplete = @"<RadzenAutoComplete Data=""@_fontes"" Placeholder=""Digite pra filtrar"" />";
+
+    private const string CodeRadioList = @"<RadzenRadioButtonList @bind-Value=""_status"" TValue=""string"" Orientation=""Orientation.Vertical"">
+    <Items>
+        <RadzenRadioButtonListItem Text=""Rascunho""   Value=""@(""rascunho"")"" />
+        <RadzenRadioButtonListItem Text=""Em revisão"" Value=""@(""revisao"")"" />
+        <RadzenRadioButtonListItem Text=""Aprovado""   Value=""@(""aprovado"")"" />
+    </Items>
+</RadzenRadioButtonList>";
+
+    private const string CodeCheckList = @"<RadzenCheckBoxList @bind-Value=""_selecionados"" TValue=""string"">
+    <Items>
+        <RadzenCheckBoxListItem Text=""Rascunho""   Value=""@(""rascunho"")"" />
+        <RadzenCheckBoxListItem Text=""Em revisão"" Value=""@(""revisao"")"" />
+        <RadzenCheckBoxListItem Text=""Aprovado""   Value=""@(""aprovado"")"" />
+    </Items>
+</RadzenCheckBoxList>
+
+<!-- CheckBox individual tri-state -->
+<RadzenCheckBox @bind-Value=""_triBool"" TValue=""bool?"" TriState=""true"" />";
+
+    private const string CodePassword = @"<RadzenPassword Placeholder=""Digite a senha"" />";
+
+    private const string CodeRating = @"<RadzenRating @bind-Value=""_nota"" />
+<RadzenRating Value=""4"" ReadOnly=""true"" />
+<RadzenRating Value=""3"" Disabled=""true"" />";
+
+    private const string CodeTooltip = @"@inject TooltipService TooltipService
+
+<RadzenButton Text=""Passe o mouse""
+              MouseEnter=""@(args => TooltipService.Open(args, ""Texto da dica""))"" />";
+
+    private const string CodeDataGrid = @"<RadzenDataGrid Data=""@_rows"" TItem=""Item""
+                AllowSorting=""true"" AllowFiltering=""true"" AllowPaging=""true"" PageSize=""10"">
+    <Columns>
+        <RadzenDataGridColumn TItem=""Item"" Property=""Codigo"" Title=""Código"" Width=""100px"" />
+        <RadzenDataGridColumn TItem=""Item"" Property=""Descricao"" Title=""Descrição"" />
+        <RadzenDataGridColumn TItem=""Item"" Property=""Status"" Title=""Status"" Width=""140px"" />
+        <RadzenDataGridColumn TItem=""Item"" Property=""Valor"" Title=""Valor""
+                              FormatString=""{0:C}"" TextAlign=""TextAlign.Right"" />
+    </Columns>
+</RadzenDataGrid>";
+
+    private const string CodeOrdenacao = @"<!-- Dropdown/menu de ordenação e filtro — padrão Lar -->
+<div class=""ds-sort-card"">
+    <button class=""ds-sort-item ds-sort-item--active"" type=""button"">
+        <span class=""material-icons"">schedule</span> Adicionados recentemente
+    </button>
+    <button class=""ds-sort-item"" type=""button"">
+        <span class=""material-icons"">sort_by_alpha</span> Alfabético
+    </button>
+</div>";
 }

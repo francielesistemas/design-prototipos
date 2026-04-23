@@ -765,7 +765,24 @@ Rede de supermercados da Lar. Paleta ampla pra refletir variedade de produtos e 
   }
   ```
 
-### 11.6. Página interativa
+### 11.6. Componentes adicionados ao DS vivo (2026-04-23)
+
+Além dos componentes base, a página `/design-system` passou a expor:
+
+| Componente | Razor | Uso Lar |
+|-----------|-------|---------|
+| **AutoComplete** | `RadzenAutoComplete` | Busca incremental em listas grandes (clientes, produtos, contas contábeis). Compartilha spec de `TextBox_FormField`. |
+| **RadioButtonList** | `RadzenRadioButtonList` | Seleção única, orientação vertical ou horizontal. Círculo `20×20 px`, dot interno `--rz-primary`. |
+| **CheckBoxList** | `RadzenCheckBoxList` + `RadzenCheckBox TriState` | Seleção múltipla + estado tri-state pra "pai" de sub-itens. |
+| **Password** | `RadzenPassword` | Campo mascarado com toggle de visibilidade (olho). |
+| **Rating** | `RadzenRating` | Avaliação por estrelas — modos normal / readonly / disabled. Estrela preenchida `--rz-primary`. |
+| **Tooltip** | `RadzenTooltip` + `TooltipService` | Dica contextual. Fundo `--rz-base-900`, texto branco, sombra `--rz-shadow-2`. Posições: top/bottom/left/right. |
+| **DataGrid** | `RadzenDataGrid` | Tabela densa com sort, filtro, paginação. Linha selecionada: primary com alpha 16%. |
+| **Ordenação/filtro (composição)** | custom — classes `.ds-sort-card` + `.ds-sort-item` | Menu suspenso de ordenar/filtrar em toolbars de lista. Item ativo em `--rz-primary`. |
+
+As variações visuais extensas do Button (Primary/Default/Info/Success/Warning + seus Outlined em todos os estados Normal/Hover/Focused/Active/Disabled) já são cobertas pelas props `ButtonStyle` × `Variant` × `Size` do `RadzenButton`. Não é necessário criar novos componentes — só mostrar a matriz no DS vivo.
+
+### 11.7. Página interativa
 
 A **página viva do design system** está em `/design-system` (ou `/ds`) do aplicativo. Mostra logos, paletas, tipografia, espaçamento, sombras e componentes renderizados ao vivo — use ela como referência visual no dia-a-dia.
 
