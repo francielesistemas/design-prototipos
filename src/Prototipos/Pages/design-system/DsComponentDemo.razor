@@ -1,0 +1,39 @@
+@namespace Lar.Prototipos.Pages.DesignSystem
+@*
+    Bloco de demonstracao de componente com preview ao vivo + codigo.
+    Usado pra popular a secao Componentes da pagina de design system.
+*@
+<div class="ds-demo">
+    @if (!string.IsNullOrEmpty(Title))
+    {
+        <div class="ds-demo__head">
+            <div class="rz-text-subtitle1 ds-demo__title">@Title</div>
+            @if (!string.IsNullOrEmpty(Description))
+            {
+                <div class="ds-demo__desc">@Description</div>
+            }
+        </div>
+    }
+
+    <div class="ds-demo__preview">
+        @Preview
+    </div>
+
+    @if (!string.IsNullOrEmpty(Code))
+    {
+        <div class="ds-demo__code-wrapper">
+            <div class="ds-demo__code-label">
+                <span class="material-icons" style="font-size:14px; vertical-align:middle;">code</span>
+                Código
+            </div>
+            <pre class="ds-demo__code"><code>@Code</code></pre>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public string? Title { get; set; }
+    [Parameter] public string? Description { get; set; }
+    [Parameter] public RenderFragment? Preview { get; set; }
+    [Parameter] public string? Code { get; set; }
+}

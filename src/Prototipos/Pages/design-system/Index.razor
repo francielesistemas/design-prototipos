@@ -379,15 +379,19 @@
                 <div class="rz-text-overline" style="color: var(--rz-primary);">06 · Componentes</div>
                 <h2 class="rz-text-h4">Biblioteca base</h2>
                 <p class="rz-text-body2 ds-section__desc">
-                    Componentes Radzen com os tokens da Lar aplicados. Prefira estes aos HTML nativos —
-                    já cobrem estados, acessibilidade e tema.
+                    Componentes Radzen com os tokens Lar aplicados. Cada demo abaixo mostra o componente
+                    ao vivo e o código Razor pra copiar. Prefira estes aos equivalentes HTML nativos —
+                    já cobrem estados, acessibilidade, dark mode e responsividade.
                 </p>
             </header>
 
-            <!-- Buttons -->
-            <div class="ds-comp-block">
-                <div class="ds-comp-block__title rz-text-subtitle1">Botões</div>
-                <div class="ds-comp-block__preview">
+            <!-- ========== AÇÃO ========== -->
+            <div class="ds-palette-group__title rz-text-subtitle2" style="margin-top: var(--rz-space-6);">Ação</div>
+
+            <DsComponentDemo Title="Botões — RadzenButton"
+                             Description="Variantes visuais (Filled/Outlined/Text/Flat), estilos semânticos, com ou sem ícone, 4 tamanhos."
+                             Code="@CodeButton">
+                <Preview>
                     <div class="ds-btn-row">
                         <RadzenButton Text="Primary" ButtonStyle="ButtonStyle.Primary" />
                         <RadzenButton Text="Secondary" ButtonStyle="ButtonStyle.Secondary" />
@@ -397,11 +401,12 @@
                         <RadzenButton Text="Danger" ButtonStyle="ButtonStyle.Danger" />
                     </div>
                     <div class="ds-btn-row">
+                        <RadzenButton Text="Filled" ButtonStyle="ButtonStyle.Primary" Variant="Variant.Filled" />
                         <RadzenButton Text="Outlined" ButtonStyle="ButtonStyle.Primary" Variant="Variant.Outlined" />
                         <RadzenButton Text="Text" ButtonStyle="ButtonStyle.Primary" Variant="Variant.Text" />
                         <RadzenButton Text="Flat" ButtonStyle="ButtonStyle.Primary" Variant="Variant.Flat" />
-                        <RadzenButton Text="Disabled" ButtonStyle="ButtonStyle.Primary" Disabled="true" />
-                        <RadzenButton Icon="add" Text="Com ícone" ButtonStyle="ButtonStyle.Primary" />
+                        <RadzenButton Icon="download" Text="Com ícone" ButtonStyle="ButtonStyle.Primary" />
+                        <RadzenButton Text="Disabled" Disabled="true" />
                     </div>
                     <div class="ds-btn-row">
                         <RadzenButton Text="Extra Small" Size="ButtonSize.ExtraSmall" ButtonStyle="ButtonStyle.Primary" />
@@ -409,41 +414,103 @@
                         <RadzenButton Text="Medium" Size="ButtonSize.Medium" ButtonStyle="ButtonStyle.Primary" />
                         <RadzenButton Text="Large" Size="ButtonSize.Large" ButtonStyle="ButtonStyle.Primary" />
                     </div>
-                </div>
-                <div class="ds-comp-block__code">
-                    <code>&lt;RadzenButton Text="..." ButtonStyle="ButtonStyle.Primary" Variant="Variant.Filled" Size="ButtonSize.Medium" /&gt;</code>
-                </div>
-            </div>
+                </Preview>
+            </DsComponentDemo>
 
-            <!-- Badges -->
-            <div class="ds-comp-block">
-                <div class="ds-comp-block__title rz-text-subtitle1">Badges (pills)</div>
-                <div class="ds-comp-block__preview">
-                    <div class="ds-btn-row">
-                        <RadzenBadge Text="Primary" BadgeStyle="BadgeStyle.Primary" />
-                        <RadzenBadge Text="Secondary" BadgeStyle="BadgeStyle.Secondary" />
-                        <RadzenBadge Text="Info" BadgeStyle="BadgeStyle.Info" />
-                        <RadzenBadge Text="Success" BadgeStyle="BadgeStyle.Success" />
-                        <RadzenBadge Text="Warning" BadgeStyle="BadgeStyle.Warning" />
-                        <RadzenBadge Text="Danger" BadgeStyle="BadgeStyle.Danger" />
-                    </div>
-                    <div class="ds-btn-row">
-                        <span class="rz-badge--status rz-badge--status-rascunho">Rascunho</span>
-                        <span class="rz-badge--status rz-badge--status-revisao">Em revisão</span>
-                        <span class="rz-badge--status rz-badge--status-aprovado">Aprovado</span>
-                    </div>
-                </div>
-                <div class="ds-comp-block__code">
-                    <code>&lt;RadzenBadge Text="..." BadgeStyle="BadgeStyle.Primary" /&gt;</code>
-                    <br />
-                    <code>&lt;span class="rz-badge--status rz-badge--status-aprovado"&gt;...&lt;/span&gt; (status de fluxo)</code>
-                </div>
-            </div>
+            <!-- ========== LAYOUT ========== -->
+            <div class="ds-palette-group__title rz-text-subtitle2" style="margin-top: var(--rz-space-6);">Layout e superfícies</div>
 
-            <!-- Inputs -->
-            <div class="ds-comp-block">
-                <div class="ds-comp-block__title rz-text-subtitle1">Inputs</div>
-                <div class="ds-comp-block__preview">
+            <DsComponentDemo Title="Cards — RadzenCard"
+                             Description="Superfície padrão de conteúdo. Variant Filled (com sombra) ou Outlined (só borda)."
+                             Code="@CodeCard">
+                <Preview>
+                    <div class="ds-card-row">
+                        <RadzenCard Style="width: 280px">
+                            <RadzenText TextStyle="TextStyle.Subtitle1" Style="margin-bottom: 8px; display: block;">Título do card</RadzenText>
+                            <RadzenText TextStyle="TextStyle.Body2" Style="color: var(--rz-text-secondary)">
+                                Conteúdo com descrição. Sombra nível 2 por padrão.
+                            </RadzenText>
+                        </RadzenCard>
+                        <RadzenCard Variant="Variant.Outlined" Style="width: 280px">
+                            <RadzenText TextStyle="TextStyle.Subtitle1" Style="margin-bottom: 8px; display: block;">Card outlined</RadzenText>
+                            <RadzenText TextStyle="TextStyle.Body2" Style="color: var(--rz-text-secondary)">
+                                Sem sombra, borda 1px. Ideal pra listas densas.
+                            </RadzenText>
+                        </RadzenCard>
+                    </div>
+                </Preview>
+            </DsComponentDemo>
+
+            <DsComponentDemo Title="Stat cards (composição)"
+                             Description="Composição de card + ícone colorido + label + valor — padrão de dashboard das mockups da Lar. Usa classes utilitárias em ds-tokens.css."
+                             Code="@CodeStatCard">
+                <Preview>
+                    <div class="ds-stat-grid">
+                        <div class="ds-stat-card">
+                            <div class="ds-stat-card__icon ds-stat-card__icon--info">
+                                <span class="material-icons">computer</span>
+                            </div>
+                            <div class="ds-stat-card__meta">
+                                <div class="ds-stat-card__label">Computadores</div>
+                                <div class="ds-stat-card__value">23.953</div>
+                            </div>
+                        </div>
+                        <div class="ds-stat-card">
+                            <div class="ds-stat-card__icon ds-stat-card__icon--success">
+                                <span class="material-icons">article</span>
+                            </div>
+                            <div class="ds-stat-card__meta">
+                                <div class="ds-stat-card__label">Acessos hoje</div>
+                                <div class="ds-stat-card__value">4.803</div>
+                            </div>
+                        </div>
+                        <div class="ds-stat-card">
+                            <div class="ds-stat-card__icon ds-stat-card__icon--warning">
+                                <span class="material-icons">feed</span>
+                            </div>
+                            <div class="ds-stat-card__meta">
+                                <div class="ds-stat-card__label">Notícias ativas</div>
+                                <div class="ds-stat-card__value">30</div>
+                            </div>
+                        </div>
+                        <div class="ds-stat-card">
+                            <div class="ds-stat-card__icon ds-stat-card__icon--primary">
+                                <span class="material-icons">call</span>
+                            </div>
+                            <div class="ds-stat-card__meta">
+                                <div class="ds-stat-card__label">Ramais telefone</div>
+                                <div class="ds-stat-card__value">2.029</div>
+                            </div>
+                        </div>
+                    </div>
+                </Preview>
+            </DsComponentDemo>
+
+            <!-- ========== FORMULÁRIOS ========== -->
+            <div class="ds-palette-group__title rz-text-subtitle2" style="margin-top: var(--rz-space-6);">Formulários</div>
+
+            <DsComponentDemo Title="FormField (floating label) — RadzenFormField"
+                             Description="Envelopa inputs com label flutuante Material. Variant Outlined (padrão) ou Filled."
+                             Code="@CodeFormField">
+                <Preview>
+                    <div class="ds-input-grid">
+                        <RadzenFormField Text="Nome do colaborador" Style="width: 100%">
+                            <RadzenTextBox @bind-Value="_exemploTexto" />
+                        </RadzenFormField>
+                        <RadzenFormField Text="Área" Variant="Variant.Filled" Style="width: 100%">
+                            <RadzenDropDown TValue="string" Data="@_opcoes" Value="@_opcoes[0]" />
+                        </RadzenFormField>
+                        <RadzenFormField Text="Competência" Style="width: 100%">
+                            <RadzenDatePicker TValue="DateTime?" @bind-Value="_exemploData" DateFormat="MM/yyyy" />
+                        </RadzenFormField>
+                    </div>
+                </Preview>
+            </DsComponentDemo>
+
+            <DsComponentDemo Title="Inputs standalone (sem FormField)"
+                             Description="Quando o label vive fora do campo, use os inputs Radzen direto."
+                             Code="@("<RadzenTextBox Placeholder=\"Digite aqui\" />\n<RadzenNumeric TValue=\"int\" @bind-Value=\"_n\" />\n<RadzenSwitch @bind-Value=\"_ativo\" />\n<RadzenCheckBox TValue=\"bool\" @bind-Value=\"_ativo\" />")">
+                <Preview>
                     <div class="ds-input-grid">
                         <div>
                             <label class="ds-input-label rz-text-caption">Texto</label>
@@ -470,44 +537,287 @@
                             <RadzenCheckBox TValue="bool" @bind-Value="_exemploBool" />
                         </div>
                     </div>
-                </div>
-            </div>
+                </Preview>
+            </DsComponentDemo>
 
-            <!-- Alerts -->
-            <div class="ds-comp-block">
-                <div class="ds-comp-block__title rz-text-subtitle1">Alerts</div>
-                <div class="ds-comp-block__preview" style="display: flex; flex-direction: column; gap: 12px;">
-                    <RadzenAlert AlertStyle="AlertStyle.Info" Title="Informativo">Texto explicativo do alerta informativo.</RadzenAlert>
+            <!-- ========== NAVEGAÇÃO ========== -->
+            <div class="ds-palette-group__title rz-text-subtitle2" style="margin-top: var(--rz-space-6);">Navegação</div>
+
+            <DsComponentDemo Title="Breadcrumb — RadzenBreadCrumb"
+                             Description="Usado logo abaixo do header pra mostrar a hierarquia da página atual."
+                             Code="@CodeBreadcrumb">
+                <Preview>
+                    <RadzenBreadCrumb>
+                        <RadzenBreadCrumbItem Path="" Text="Início" />
+                        <RadzenBreadCrumbItem Path="acompanhamento" Text="Acompanhamento" />
+                        <RadzenBreadCrumbItem Text="Instrução Documental" />
+                    </RadzenBreadCrumb>
+                </Preview>
+            </DsComponentDemo>
+
+            <DsComponentDemo Title="Steps (wizard) — RadzenSteps"
+                             Description="Indicador de etapas pra fluxos sequenciais (ex: Instrução Documental de exportação)."
+                             Code="@CodeSteps">
+                <Preview>
+                    <RadzenSteps SelectedIndex="1" ShowStepsButtons="false">
+                        <Steps>
+                            <RadzenStepsItem Text="Proforma Invoice" />
+                            <RadzenStepsItem Text="Instrução Documental" />
+                            <RadzenStepsItem Text="Carregamento" />
+                            <RadzenStepsItem Text="Embarque Navio" />
+                        </Steps>
+                    </RadzenSteps>
+                </Preview>
+            </DsComponentDemo>
+
+            <DsComponentDemo Title="PanelMenu (sidebar) — RadzenPanelMenu"
+                             Description="Navegação lateral do app. Item ativo destaca com cor primary e barra lateral esquerda. Usa os ícones do Material Icons."
+                             Code="@CodePanelMenu">
+                <Preview>
+                    <div class="ds-panelmenu-preview">
+                        <div class="ds-panelmenu-preview__item ds-panelmenu-preview__item--active">
+                            <span class="material-icons">home</span> Início
+                        </div>
+                        <div class="ds-panelmenu-preview__item">
+                            <span class="material-icons">handshake</span> Negociações
+                        </div>
+                        <div class="ds-panelmenu-preview__item">
+                            <span class="material-icons">list_alt</span> Acompanhamento
+                        </div>
+                        <div class="ds-panelmenu-preview__item">
+                            <span class="material-icons">paid</span> Financeiro
+                        </div>
+                        <div class="ds-panelmenu-preview__item">
+                            <span class="material-icons">bar_chart</span> Relatórios
+                        </div>
+                    </div>
+                </Preview>
+            </DsComponentDemo>
+
+            <!-- ========== FEEDBACK ========== -->
+            <div class="ds-palette-group__title rz-text-subtitle2" style="margin-top: var(--rz-space-6);">Feedback</div>
+
+            <DsComponentDemo Title="Alerts — RadzenAlert"
+                             Description="Mensagens persistentes dentro da página. Estilos Info, Success, Warning e Danger."
+                             Code="@CodeAlert">
+                <Preview>
+                    <RadzenAlert AlertStyle="AlertStyle.Info" Title="Informativo">Texto explicativo do alerta.</RadzenAlert>
                     <RadzenAlert AlertStyle="AlertStyle.Success" Title="Sucesso">Ação concluída com sucesso.</RadzenAlert>
                     <RadzenAlert AlertStyle="AlertStyle.Warning" Title="Atenção">Algo requer sua atenção, mas não é crítico.</RadzenAlert>
                     <RadzenAlert AlertStyle="AlertStyle.Danger" Title="Erro">Algo deu errado — veja detalhes abaixo.</RadzenAlert>
-                </div>
-            </div>
+                </Preview>
+            </DsComponentDemo>
 
-            <!-- Cards -->
-            <div class="ds-comp-block">
-                <div class="ds-comp-block__title rz-text-subtitle1">Cards</div>
-                <div class="ds-comp-block__preview">
-                    <div class="ds-card-row">
-                        <RadzenCard Style="width: 280px;">
-                            <div class="rz-text-subtitle1" style="margin-bottom: 8px;">Card padrão</div>
-                            <div class="rz-text-body2" style="color: var(--rz-text-secondary);">Conteúdo do card com descrição. Sombra nível 2 por padrão.</div>
-                        </RadzenCard>
-                        <RadzenCard Style="width: 280px; box-shadow: none; border: 1px solid var(--rz-border-color);">
-                            <div class="rz-text-subtitle1" style="margin-bottom: 8px;">Card outlined</div>
-                            <div class="rz-text-body2" style="color: var(--rz-text-secondary);">Sem sombra, com borda 1px. Indicado pra listas densas.</div>
-                        </RadzenCard>
+            <DsComponentDemo Title="Badges — RadzenBadge"
+                             Description="Indicadores pequenos. Inclui pills de status customizadas em ds-tokens.css (rascunho / revisão / aprovado) pra fluxos."
+                             Code="@CodeBadge">
+                <Preview>
+                    <div class="ds-btn-row">
+                        <RadzenBadge Text="Primary" BadgeStyle="BadgeStyle.Primary" />
+                        <RadzenBadge Text="Secondary" BadgeStyle="BadgeStyle.Secondary" />
+                        <RadzenBadge Text="Info" BadgeStyle="BadgeStyle.Info" />
+                        <RadzenBadge Text="Success" BadgeStyle="BadgeStyle.Success" />
+                        <RadzenBadge Text="Warning" BadgeStyle="BadgeStyle.Warning" />
+                        <RadzenBadge Text="Danger" BadgeStyle="BadgeStyle.Danger" />
                     </div>
-                </div>
-            </div>
+                    <div class="ds-btn-row">
+                        <span class="rz-badge--status rz-badge--status-rascunho">Rascunho</span>
+                        <span class="rz-badge--status rz-badge--status-revisao">Em revisão</span>
+                        <span class="rz-badge--status rz-badge--status-aprovado">Aprovado</span>
+                    </div>
+                </Preview>
+            </DsComponentDemo>
+
+            <DsComponentDemo Title="Appearance toggle — RadzenAppearanceToggle"
+                             Description="Botão de alternância light/dark. Encaixa direto no header do app (como nas suas mockups)."
+                             Code="@CodeAppearanceToggle">
+                <Preview>
+                    <div class="ds-btn-row">
+                        <RadzenAppearanceToggle />
+                        <RadzenText TextStyle="TextStyle.Caption" Style="color: var(--rz-text-secondary)">
+                            Clique pra alternar tema. Persiste via localStorage.
+                        </RadzenText>
+                    </div>
+                </Preview>
+            </DsComponentDemo>
+
+            <!-- ========== DATA VIZ ========== -->
+            <div class="ds-palette-group__title rz-text-subtitle2" style="margin-top: var(--rz-space-6);">Visualização de dados</div>
+
+            <DsComponentDemo Title="Column chart — RadzenChart"
+                             Description="Gráfico de colunas. Use Fill/Stroke com tokens Lar pra manter identidade visual."
+                             Code="@CodeChart">
+                <Preview>
+                    <RadzenChart Style="width: 100%; height: 280px; max-width: 720px;">
+                        <RadzenColumnSeries Data="@_acessosPorMes"
+                                            CategoryProperty="Mes" ValueProperty="Acessos"
+                                            Title="Acessos por mês"
+                                            Fill="#E40046" Stroke="#E40046" />
+                        <RadzenValueAxis FormatString="{0:N0}" />
+                        <RadzenCategoryAxis />
+                    </RadzenChart>
+                </Preview>
+            </DsComponentDemo>
+
+            <DsComponentDemo Title="Donut chart — RadzenChart"
+                             Description="Distribuição proporcional. Ideal pro 'Top 5' de dashboards."
+                             Code="@CodeDonut">
+                <Preview>
+                    <RadzenChart Style="width: 100%; height: 280px; max-width: 480px;">
+                        <RadzenDonutSeries Data="@_topSistemas"
+                                           CategoryProperty="Sistema" ValueProperty="Acessos"
+                                           Title="Top sistemas" />
+                    </RadzenChart>
+                </Preview>
+            </DsComponentDemo>
         </section>
 
     </main>
 </div>
 
 @code {
+    // ---- Dados de exemplo pra inputs ----
     private string[] _opcoes = new[] { "Opção A", "Opção B", "Opção C" };
     private DateTime? _exemploData = DateTime.Today;
     private int _exemploNumero = 42;
     private bool _exemploBool = true;
+    private string _exemploTexto = "";
+
+    // ---- Dados de exemplo pra charts ----
+    private record AcessoPorMes(string Mes, double Acessos);
+    private record SistemaMaisAcessado(string Sistema, double Acessos);
+
+    private IList<AcessoPorMes> _acessosPorMes = new List<AcessoPorMes>
+    {
+        new("Abr", 4500),
+        new("Mai", 6200),
+        new("Jun", 9100),
+        new("Jul", 11400),
+        new("Ago", 13800),
+        new("Set", 17500),
+    };
+
+    private IList<SistemaMaisAcessado> _topSistemas = new List<SistemaMaisAcessado>
+    {
+        new("Zmail", 13028),
+        new("Sênior", 8456),
+        new("Captura de Ponto", 6234),
+        new("Ramais", 4821),
+        new("B.I.", 3167),
+    };
+
+    // ---- Codigos-fonte exibidos nos demos ----
+    private const string CodeButton = """
+<RadzenButton Text="Primary" ButtonStyle="ButtonStyle.Primary" />
+<RadzenButton Text="Outlined" ButtonStyle="ButtonStyle.Primary" Variant="Variant.Outlined" />
+<RadzenButton Text="Text" ButtonStyle="ButtonStyle.Primary" Variant="Variant.Text" />
+<RadzenButton Icon="download" Text="Com ícone" ButtonStyle="ButtonStyle.Primary" />
+<RadzenButton Text="Disabled" Disabled="true" />
+""";
+
+    private const string CodeBadge = """
+<RadzenBadge Text="Primary"  BadgeStyle="BadgeStyle.Primary"  />
+<RadzenBadge Text="Success"  BadgeStyle="BadgeStyle.Success"  />
+<RadzenBadge Text="Warning"  BadgeStyle="BadgeStyle.Warning"  />
+<RadzenBadge Text="Danger"   BadgeStyle="BadgeStyle.Danger"   />
+
+@* Pill customizada pra status de fluxo (ds-tokens.css) *@
+<span class="rz-badge--status rz-badge--status-aprovado">Aprovado</span>
+""";
+
+    private const string CodeCard = """
+<RadzenCard Variant="Variant.Filled" Style="width: 280px">
+    <RadzenText TextStyle="TextStyle.Subtitle1">Título do card</RadzenText>
+    <RadzenText TextStyle="TextStyle.Body2" Style="color: var(--rz-text-secondary)">
+        Conteúdo com descrição. Sombra nível 2 por padrão.
+    </RadzenText>
+</RadzenCard>
+
+<RadzenCard Variant="Variant.Outlined" Style="width: 280px">
+    <RadzenText TextStyle="TextStyle.Subtitle1">Card outlined</RadzenText>
+    <RadzenText TextStyle="TextStyle.Body2">Sem sombra, borda 1px.</RadzenText>
+</RadzenCard>
+""";
+
+    private const string CodeStatCard = """
+<div class="ds-stat-card">
+    <div class="ds-stat-card__icon ds-stat-card__icon--info">
+        <span class="material-icons">computer</span>
+    </div>
+    <div class="ds-stat-card__meta">
+        <div class="ds-stat-card__label">Computadores</div>
+        <div class="ds-stat-card__value">23.953</div>
+    </div>
+</div>
+""";
+
+    private const string CodeFormField = """
+<RadzenFormField Text="Nome do colaborador" Style="width: 100%">
+    <RadzenTextBox @bind-Value="_nome" />
+</RadzenFormField>
+
+<RadzenFormField Text="Área" Variant="Variant.Filled">
+    <RadzenDropDown Data="@_areas" @bind-Value="_area" />
+</RadzenFormField>
+""";
+
+    private const string CodeBreadcrumb = """
+<RadzenBreadCrumb>
+    <RadzenBreadCrumbItem Path="" Text="Início" />
+    <RadzenBreadCrumbItem Path="acompanhamento" Text="Acompanhamento" />
+    <RadzenBreadCrumbItem Text="Instrução Documental" />
+</RadzenBreadCrumb>
+""";
+
+    private const string CodeSteps = """
+<RadzenSteps SelectedIndex="1">
+    <Steps>
+        <RadzenStepsItem Text="Proforma" />
+        <RadzenStepsItem Text="Instrução" />
+        <RadzenStepsItem Text="Carregamento" />
+        <RadzenStepsItem Text="Embarque" />
+    </Steps>
+</RadzenSteps>
+""";
+
+    private const string CodePanelMenu = """
+<RadzenPanelMenu>
+    <RadzenPanelMenuItem Text="Início" Icon="home" Path="/" />
+    <RadzenPanelMenuItem Text="Acompanhamento" Icon="list_alt"
+                         Path="/acompanhamento" Selected="true" />
+    <RadzenPanelMenuItem Text="Financeiro" Icon="paid" Path="/financeiro" />
+    <RadzenPanelMenuItem Text="Relatórios" Icon="bar_chart" Path="/relatorios" />
+</RadzenPanelMenu>
+""";
+
+    private const string CodeChart = """
+<RadzenChart>
+    <RadzenColumnSeries Data="@_acessosPorMes"
+                        CategoryProperty="Mes" ValueProperty="Acessos"
+                        Title="Acessos por mês" Stroke="var(--rz-primary)"
+                        Fill="var(--rz-primary)" />
+    <RadzenValueAxis FormatString="{0:N0}" />
+    <RadzenCategoryAxis />
+</RadzenChart>
+""";
+
+    private const string CodeDonut = """
+<RadzenChart>
+    <RadzenDonutSeries Data="@_topSistemas"
+                       CategoryProperty="Sistema" ValueProperty="Acessos"
+                       Title="Top sistemas mais acessados" />
+</RadzenChart>
+""";
+
+    private const string CodeAlert = """
+<RadzenAlert AlertStyle="AlertStyle.Info"    Title="Informativo">...</RadzenAlert>
+<RadzenAlert AlertStyle="AlertStyle.Success" Title="Sucesso">...</RadzenAlert>
+<RadzenAlert AlertStyle="AlertStyle.Warning" Title="Atenção">...</RadzenAlert>
+<RadzenAlert AlertStyle="AlertStyle.Danger"  Title="Erro">...</RadzenAlert>
+""";
+
+    private const string CodeAppearanceToggle = """
+<RadzenAppearanceToggle />
+@* Coloca no header pra usuário trocar entre light/dark em runtime *@
+""";
 }

@@ -16,8 +16,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- Tema Radzen Material (base dos componentes Radzen) -->
-    <link rel="stylesheet" href="_content/Radzen.Blazor/css/material-base.css" />
+    <!-- Tema Radzen Material COMPLETO (estilos visuais prontos).
+         Nao usar material-base.css sozinho — ele e apenas o esqueleto sem estilos.
+         Os tokens --rz-* de ds-tokens.css sobrescrevem as cores do Material pelo brand Lar. -->
+    <link rel="stylesheet" href="_content/Radzen.Blazor/css/material.css" />
 
     <!-- Tokens do design system Lar (sobrescreve cores/tipografia do Radzen) -->
     <link rel="stylesheet" href="css/ds-tokens.css" />
