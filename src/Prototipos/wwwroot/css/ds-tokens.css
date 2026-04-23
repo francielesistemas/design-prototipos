@@ -345,3 +345,37 @@ html, body {
     background-color: var(--rz-base-100) !important;
     color: var(--rz-base-900) !important;
 }
+
+/* Steps (wizard) — circulo 32px, ativo vermelho Lar, completo verde success, inativo cinza.
+   Spec: docs/design-system-blazor.md §6.3 */
+.rz-steps-number {
+    background: var(--rz-base-400) !important;
+    color: #FFFFFF !important;
+    border-color: var(--rz-base-400) !important;
+}
+
+.rz-steps-item.rz-state-highlight .rz-steps-number,
+.rz-steps-item-active .rz-steps-number,
+li.rz-steps-item.rz-state-highlight > a > .rz-steps-number {
+    background: var(--rz-primary) !important;
+    color: var(--rz-text-on-primary) !important;
+    border-color: var(--rz-primary) !important;
+}
+
+.rz-steps-item.rz-state-complete .rz-steps-number,
+.rz-steps-item-completed .rz-steps-number {
+    background: var(--rz-success) !important;
+    color: #FFFFFF !important;
+    border-color: var(--rz-success) !important;
+}
+
+.rz-steps-item.rz-state-highlight .rz-steps-title,
+.rz-steps-item-active .rz-steps-title {
+    color: var(--rz-primary) !important;
+    font-weight: 500;
+}
+
+.rz-steps-item.rz-state-complete .rz-steps-title,
+.rz-steps-item-completed .rz-steps-title {
+    color: var(--rz-success) !important;
+}
