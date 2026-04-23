@@ -720,6 +720,39 @@
                 </Preview>
             </DsComponentDemo>
 
+            <DsComponentDemo Title="Login — template de página"
+                             Description="Padrão de card de login centralizado: logo institucional no topo, título, inputs com ícone, checkbox de 'Manter login' + link de recuperação, botão primary full-width."
+                             Code="@CodeLogin">
+                <Preview>
+                    <div class="ds-login-wrap">
+                        <div class="ds-login-card">
+                            <div class="ds-login-card__logo">
+                                <img src="assets/logos/lar-institucional-color.svg" alt="Lar" />
+                            </div>
+                            <h3 class="rz-text-h5 ds-login-card__title">Entrar na conta</h3>
+
+                            <div class="ds-login-card__field">
+                                <span class="material-icons ds-login-card__field-icon">mail</span>
+                                <RadzenTextBox Placeholder="Endereço de e-mail" Style="width: 100%; padding-left: 40px;" />
+                            </div>
+
+                            <div class="ds-login-card__field">
+                                <span class="material-icons ds-login-card__field-icon">lock</span>
+                                <RadzenPassword Placeholder="Senha" Style="width: 100%; padding-left: 40px;" />
+                            </div>
+
+                            <div class="ds-login-card__row">
+                                <RadzenCheckBox TValue="bool" @bind-Value="_exemploBool" />
+                                <span class="rz-text-body2">Manter login</span>
+                                <a href="#" class="ds-login-card__link">Esqueceu sua senha?</a>
+                            </div>
+
+                            <RadzenButton Text="Entrar" ButtonStyle="ButtonStyle.Primary" Style="width: 100%; height: 44px;" />
+                        </div>
+                    </div>
+                </Preview>
+            </DsComponentDemo>
+
             <!-- ========== NAVEGAÇÃO ========== -->
             <div class="ds-palette-group__title rz-text-subtitle2" style="margin-top: var(--rz-space-6);">Navegação</div>
 
@@ -1091,6 +1124,21 @@
 <!-- Coloca no header pra usuário trocar entre light/dark em runtime -->";
 
     private const string CodeAutoComplete = @"<RadzenAutoComplete Data=""@_fontes"" Placeholder=""Digite pra filtrar"" />";
+
+    private const string CodeLogin = @"<div class=""ds-login-card"">
+    <img src=""assets/logos/lar-institucional-color.svg"" alt=""Lar"" />
+    <h3 class=""rz-text-h5"">Entrar na conta</h3>
+
+    <RadzenTextBox Placeholder=""Endereço de e-mail"" />
+    <RadzenPassword Placeholder=""Senha"" />
+
+    <div class=""ds-login-card__row"">
+        <RadzenCheckBox @bind-Value=""_manter"" /> Manter login
+        <a href=""/recuperar-senha"">Esqueceu sua senha?</a>
+    </div>
+
+    <RadzenButton Text=""Entrar"" ButtonStyle=""ButtonStyle.Primary"" Style=""width: 100%"" />
+</div>";
 
     private const string CodeDropdownValidation = @"<!-- Wrapper ds-field + hint colorido abaixo do input -->
 <div class=""ds-field ds-field--success"">

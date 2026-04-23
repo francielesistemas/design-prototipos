@@ -896,3 +896,72 @@
 .ds-field--danger .ds-field__hint {
     color: var(--rz-danger);
 }
+
+/* Login card template */
+.ds-login-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;
+}
+
+.ds-login-card {
+    width: 100%;
+    max-width: 440px;
+    padding: 32px;
+    background: var(--rz-base-0);
+    border: 1px solid var(--rz-base-200);
+    border-radius: 8px;
+    box-shadow: var(--rz-shadow-2);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ds-login-card__logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.ds-login-card__logo img {
+    height: 56px;
+    width: auto;
+}
+
+.ds-login-card__title {
+    margin: 0 0 8px;
+    color: var(--rz-brand-brown, var(--rz-text-color));
+}
+
+.ds-login-card__field {
+    position: relative;
+}
+
+.ds-login-card__field-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--rz-base-500);
+    font-size: 20px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.ds-login-card__row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.ds-login-card__link {
+    margin-left: auto;
+    color: var(--rz-primary);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.ds-login-card__link:hover {
+    text-decoration: underline;
+}
