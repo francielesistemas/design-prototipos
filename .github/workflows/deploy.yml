@@ -31,10 +31,10 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restaurar dependencias
-        run: dotnet restore src/Prototipos/Prototipos.csproj
+        run: dotnet restore design-system/src/Prototipos/Prototipos.csproj
 
       - name: Publicar em Release
-        run: dotnet publish src/Prototipos/Prototipos.csproj -c Release -o publish --no-restore
+        run: dotnet publish design-system/src/Prototipos/Prototipos.csproj -c Release -o publish --no-restore
 
       # GitHub Pages serve em /<nome-do-repo>/, entao o <base href="/"> precisa
       # virar <base href="/design-prototipos/"> no deploy.
